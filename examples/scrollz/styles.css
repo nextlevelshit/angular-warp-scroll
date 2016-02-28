@@ -1,0 +1,62 @@
+@import url(http://fonts.googleapis.com/css?family=Ruda:400,700);
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 7000px; /* Must be set to NUMBER OF SLIDES * PERSPECTIVE */
+    background: white;
+    color: #2A2A2A;
+    font-family: "Ruda", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+a,
+a:link,
+a:visited {
+    color: #CC0A4D;
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    color: #CC0A4D;
+    text-decoration: none;
+    text-shadow: 0 0 5px rgba(204, 10, 77, 0.5);
+}
+
+#scroll-stage {
+    perspective: 1000px;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+.slide {
+    padding-top: 70px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+}
+.slide--1 {
+    z-index: 1000;
+}
+.slide--2 {
+    z-index: 900;
+}
+.slide--3 {
+    z-index: 800;
+}
+.slide--4 {
+    z-index: 700;
+}
+.slide--5 {
+    z-index: 600;
+}
+.slide--6 {
+    z-index: 700;
+}
+.slide--7 {
+    z-index: 6800;
+}

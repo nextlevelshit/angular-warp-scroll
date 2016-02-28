@@ -1,0 +1,15 @@
+{
+  "name": "starwars-scroll",
+  "version": "0.0.1",
+  "description": "Scroll through your website in a star wars intro like experience",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Czechowski (nextlevelshit)",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "angular": "^1.5.0",
+    "angular-scroll-watch": "^0.6.1"
+  }
+}
