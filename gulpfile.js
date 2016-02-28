@@ -45,11 +45,13 @@ gulp.task('build', ['lint'], function () {
     .pipe(header(config.banner, {pkg: pkg, today: getTodayStr()}))
     .pipe(gulp.dest(config.buildDir));
 });
+
 gulp.task('lint', function () {
   return gulp.src(config.src)
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
 });
+
 gulp.task('watch', function () {
   gulp.watch(config.src, ['build']);
 });
@@ -61,6 +63,7 @@ gulp.task('server', function () {
     port: 9000
   });
 });
+
 gulp.task('watch:example', function () {
   livereload.listen();
 
@@ -72,6 +75,7 @@ gulp.task('watch:example', function () {
   gulp.watch(paths, ['lint:example', 'less:example'])
     .on('change', livereload.changed);
 });
+
 gulp.task('lint:example', function () {
   return gulp.src('example/{,**/}*.{html,js}', {base: './'})
     .pipe(cache('lint-example'))
@@ -79,6 +83,7 @@ gulp.task('lint:example', function () {
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
 });
+
 gulp.task('less:example', function () {
   return gulp.src('example/*/style.less', {base: './'})
     .pipe(changed('./', {extension: '.css'}))
