@@ -3,21 +3,22 @@ angular.module('app', [
         'pc035860.scrollWatch'
     ])
 
+    // Remove scrollWatch and replace with native progress calculation
+
     .controller('MainCtrl', function ($scope, $log, $window, $document) {
-        angular.forEach([1, 2, 3, 4, 5], function (i) {
-            $scope.$on('slide' + i, onSlideChange);
-        });
-
-        function onSlideChange($evt, active, locals) {
-            $scope[$evt.name] = active;
-        }
-
         $scope.localsJSON = null;
         $scope.scrollWatch = null;
 
         var $body = angular.element(document).find('body');
         var $allSlides = document.querySelectorAll('.slide');
         var allSlidesNum = $allSlides.length;
+        var $dots = $('sidebar > .list--dots');
+        var $listItem = '<li class="list__item active"/>';
+
+        for (var i = 0; i < allSlidesNum; i++) {
+            $dots.append($listItem);
+        }
+
 
         /**
          * Get current opacity of every slide related to its
@@ -71,8 +72,6 @@ angular.module('app', [
             var slideHeight = bodyHeight / allSlidesNum;
             var slideHeightRelativeToWindow = (bodyHeight - windowHeight) / (allSlidesNum - 1);
 
-            //console.log(bodyHeight, windowHeight, slideHeightRelativeToWindow);
-
             var zoomFactor = locals.$progress;
             var zoomPerspective = bodyHeight * (zoomFactor - 1);
             var stepsRelativeToAllSlides = 1 / (allSlidesNum - 1);
@@ -80,7 +79,6 @@ angular.module('app', [
             var slidesTranslateList = [];
 
             angular.forEach($allSlides, function(slide, key) {
-                //var transformSlide = bodyHeight * zoomFactor - bodyHeight + slideHeight * ($allSlides.length - key) - slideHeight * zoomFactor;
                 var transformFactor = $allSlides.length - key - zoomFactor;
                 var transformSlide = zoomPerspective + slideHeight * transformFactor;
                 var cssTransform = 'translateZ(' + transformSlide + 'px)';
@@ -93,25 +91,15 @@ angular.module('app', [
                 slidesTranslateList.push(transformSlide);
             });
 
-            // In case to window.innerHeight = 5000
-            //$window.scrollTo(0, 0); // Scroll to Slide 1
-            //$window.scrollTo(0, 1080); // Scroll to Slide 2
-            //$window.scrollTo(0, 2162); // Scroll to Slide 3
-            //$window.scrollTo(0, 3246); // Scroll to Slide 4
-            //$window.scrollTo(0, 4329); // Scroll to Slide 5
-            //$window.scrollTo(0, 5412); // Scroll to Slide 6
-            //$window.scrollTo(0, 6500); // Scroll to Slide 7
+            var closestSlide = pickClosestKey(slidesTranslateList, 0);
 
+            //console.log('current scroll top', document.documentElement.scrollTop);
 
+            //console.log(locals.$progress, (bodyHeight - windowHeight) / document.documentElement.scrollTop);
 
-            //console.log(1 / allSlidesNum, zoomFactor);
-            //console.log(bodyHeightRelativeToWindow, zoomFactor);
-            //console.log(bodyHeightRelativeToWindow * slideHeight);
-            //console.log(bodyHeightRelativeToWindow * slideHeight, bodyHeightRelativeToWindow * slideHeight * 2, document.documentElement.scrollTop);
-            console.log('current scroll top', document.documentElement.scrollTop);
-            /*$scope.$apply(function () {
-                $scope.scrollWatch = locals;
-            });*/
+            $dots.children('.active').removeClass('active');
+
+            $($dots.children()[closestSlide]).addClass('active');
 
             $document.bind('scroll', function() {
                 clearTimeout( $.data( this, 'scrollCheck' ) );
@@ -119,7 +107,7 @@ angular.module('app', [
                     //Here you can call a function after scroll stopped
                     //console.log(pickClosestKey(slidesTranslateList, 0));
                     //var scrollTop = bodyHeightRelativeToWindow * (bodyHeight - windowHeight) / allSlidesNum * pickClosestKey(slidesTranslateList, 0);
-                    var scrollTop = pickClosestKey(slidesTranslateList, 0) * slideHeightRelativeToWindow;
+                    var scrollTop = closestSlide * slideHeightRelativeToWindow;
                     $('body, html').animate({scrollTop: scrollTop}, 400);
                 }, 150) );
             });

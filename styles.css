@@ -39,6 +39,7 @@ a:active {
     left: 0;
     top: 0;
 }
+
 .slide--1 {
     z-index: 1000;
 }
@@ -59,4 +60,59 @@ a:active {
 }
 .slide--7 {
     z-index: 6800;
+}
+
+/*
+ * Navigation
+ */
+
+nav {
+    display: none !important;
+}
+
+sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: auto;
+    z-index: 2000;
+    padding: 50px;
+}
+
+/*
+ * Lists
+ */
+
+.list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.list__item {
+    display: block;
+}
+
+.list--vertical {
+    display: block;
+}
+
+.list--vertical .list__item {
+    display: inline-block;
+}
+
+.list--dots .list__item {
+    opacity: 0.2;
+}
+
+.list--dots .list__item.active {
+    opacity: 1;
+}
+
+.list--dots .list__item::before {
+    content: "·";
+    font-size: 60px;
+    line-height: 20px;
+    /*text-shadow: 0, 0, 20px, white;*/
 }
