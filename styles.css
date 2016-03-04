@@ -6,7 +6,7 @@ body {
     height: 7000px; /* Must be set to NUMBER OF SLIDES * PERSPECTIVE */
     background: white;
     color: #2A2A2A;
-    font-family: "Ruda", sans-serif;
+    font-family: "Ruda", sans-serif !important;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -14,14 +14,14 @@ a,
 a:link,
 a:visited {
     color: #CC0A4D;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 a:hover,
 a:active {
-    color: #CC0A4D;
-    text-decoration: none;
-    text-shadow: 0 0 5px rgba(204, 10, 77, 0.5);
+    color: rgba(204, 10, 77, 1) !important;
+    text-shadow: 0 0 5px rgba(204, 10, 77, 0.6);
+    text-decoration: none !important;
 }
 
 #scroll-stage {
@@ -81,6 +81,14 @@ sidebar {
 }
 
 /*
+ * Helpers
+ */
+
+.text-large {
+    font-size: 26px;
+}
+
+/*
  * Lists
  */
 
@@ -115,4 +123,50 @@ sidebar {
     font-size: 60px;
     line-height: 20px;
     /*text-shadow: 0, 0, 20px, white;*/
+}
+
+/*
+ * Body border
+ */
+
+.border {
+    position: fixed;
+    background: #CC0A4D;
+    z-index: 3000;
+}
+
+.border.top {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+}
+
+.border.right {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 10px;
+}
+
+.border.bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+}
+
+.border.left {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 10px;
+}
+
+/*
+ * Animated dots
+ */
+
+.animated-dots {
+
 }
