@@ -1,5 +1,5 @@
 {
-  "name": "starwars-scroll",
+  "name": "angular-warp-scroll",
   "version": "0.0.1",
   "description": "Scroll through your website in a star wars intro like experience",
   "main": "index.html",
