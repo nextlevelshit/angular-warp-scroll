@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Angular Warp Scroll</title>
+    <title>Angular Warp Scroll {{test}}</title>
 
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.css">
@@ -17,7 +17,7 @@
     <script src="scripts.js"></script>
 </head>
 
-<body ng-controller="MainCtrl">
+<body ng-controller="ScrollCtrl">
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -67,13 +67,7 @@
     </ul>
 </sidebar>
 
-<div id="scroll-stage"
-     scroll-watch="{from: 0, to: -1}"
-     sw-broadcast="{
-        $rootScope: true,
-        'default': true
-      }">
-
+<div id="scroll-stage">
     <div class="slide slide--1">
         <div class="container">
             <div class="jumbotron background-portrait">
@@ -108,7 +102,7 @@
                 </div>
                 <div class="col-sm-4">
                     <p class="text-center">
-                        <a href="#" target="_blank">
+                        <a href="//www.xing.com/profile/Michael_Czechowski" target="_blank">
                             <i class="fa fa-2x fa-xing-square"> </i>
                             <span class="text-large"> Xing</span>
                         </a>
@@ -200,40 +194,6 @@
         <div class="container">
             <p class="text-center headline--supersize">
                 LOOK
-            </p>
-        </div>
-    </div>
-
-    <div class="slide slide--9">
-        <div class="container">
-            <p class="text-center headline--supersize">
-                AHEAD
-            </p>
-        </div>
-    </div>
-
-
-    <div class="slide slide--10">
-        <div class="container">
-            <p class="text-center headline--supersize">
-                AND
-            </p>
-        </div>
-    </div>
-
-    <div class="slide slide--11">
-        <div class="container">
-            <p class="text-center headline--supersize">
-                FEEL
-            </p>
-        </div>
-    </div>
-
-
-    <div class="slide slide--12">
-        <div class="container">
-            <p class="text-center headline--supersize">
-                FREE
             </p>
         </div>
     </div>
