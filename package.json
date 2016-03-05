@@ -10,6 +10,10 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "angular": "^1.5.0",
-    "angular-scroll-watch": "^0.6.1"
+    "angular-scroll-watch": "^0.6.1",
+    "bootstrap": "^3.3.6",
+    "bootstrap-sass": "^3.3.6",
+    "font-awesome": "^4.5.0",
+    "jquery": "^2.2.1"
   }
 }

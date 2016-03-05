@@ -1,5 +1,4 @@
 angular.module('app', [
-        'ngAnimate',
         'pc035860.scrollWatch'
     ])
 

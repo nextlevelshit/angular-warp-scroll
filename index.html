@@ -3,21 +3,16 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>angular-scroll-watch: sw-broadcast through $scope.$emit</title>
-
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.2.0/css/bootstrap.min.css">
+    <title>Angular Warp Scroll</title>
 
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 
     <script src="node_modules/angular/angular.min.js"></script>
-    <script src="node_modules/angular-animate/angular-animate.min.js"></script>
     <script src="node_modules/angular-scroll-watch/src/angular-scroll-watch.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <!-- TODO: Add jquery as node dependency -->
 
     <script src="scripts.js"></script>
 </head>
@@ -81,73 +76,60 @@
 
     <div class="slide slide--1">
         <div class="container">
-            <div class="jumbotron">
-                <h1>Servus,</h1>
+            <div class="jumbotron background-portrait">
                 <div class="row">
-                    <div class="col-sm-8">
-                        <p>Ich bin erfahrener Webentwickler, Programmierer und UI Spezialist. Schöne Benutzeroberflächen sind meine Passion!</p>
+                    <div class="col-sm-8 col-sm-offset-4">
+                        <h1>Servus,</h1>
+                        <p>Ich bin ein erfahrener Webentwickler, Programmierer und UI Spezialist. Schöne Benutzeroberflächen sind meine Passion!</p>
                     </div>
                 </div>
             </div>
 
+            <p class="text-center headline--strike">
+                <span class="headline--strike__inner">Follow me</span>
+            </p>
+
             <div class="row">
                 <div class="col-sm-4">
-                    <h2>Open Source Enthusiast</h2>
-                    <ul class="list">
-                        <li class="list__item">
-                            <a href="//github.com/nextlevelshit" target="_blank">
-                                <i class="fa fa-2x fa-github-square"> </i>
-                                <span class="text-large"> GitHub</span>
-                            </a>
-                        </li>
-                        <li class="list__item">
-                            <a href="#" target="_blank">
-                                <i class="fa fa-2x fa-xing-square"> </i>
-                                <span class="text-large"> Xing</span>
-                            </a>
-                        </li>
-                        <li class="list__item">
-                            <a href="//stackoverflow.com/users/4892206/nextlevelshit" target="_blank">
-                                <i class="fa fa-2x fa-stack-overflow"> </i>
-                                <span class="text-large"> Stack Overflow</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <p></p>
+                    <p class="text-center">
+                        <a href="//stackoverflow.com/users/4892206/nextlevelshit" target="_blank">
+                            <i class="fa fa-2x fa-stack-overflow"> </i>
+                            <span class="text-large"> Stack Overflow</span>
+                        </a>
+                    </p>
                 </div>
                 <div class="col-sm-4">
-                    <h2>Geschäftsmann</h2>
-                    <p></p>
+                    <p class="text-center">
+                        <a href="//github.com/nextlevelshit" target="_blank">
+                            <i class="fa fa-2x fa-github-square"> </i>
+                            <span class="text-large"> GitHub</span>
+                        </a>
+                    </p>
                 </div>
                 <div class="col-sm-4">
-                    <h2>Tausendsasser</h2>
-                    <p></p>
+                    <p class="text-center">
+                        <a href="#" target="_blank">
+                            <i class="fa fa-2x fa-xing-square"> </i>
+                            <span class="text-large"> Xing</span>
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
     <div class="slide slide--2">
         <div class="container">
-            <h1>Snow Crash</h1>
+            <div class="position--absolute position--top position--left">
+                <p class="headline--supersize">
+                    DON'T
+                </p>
+            </div>
+
             <div class="row">
-                <div class="col-sm-12">
-                    <p>Snow Crash (1992) ist ein Science-Fiction-Roman von Neal Stephenson, der die Geschichte ursprünglich gemeinsam mit dem Graphiker Tony Sheeder als computergenerierten Comic herausbringen wollte. Er spielt in Los Angeles in einer nicht allzu fernen Zukunft.</p>
+                <div class="col-sm-6">
                 </div>
                 <div class="col-sm-6">
-                    <h3>Handlung</h3>
-                    <p>Hiro Protagonist, Held und Hauptperson des Buches, ist Pizza-Auslieferer (Auslieferator), Programmierer (was im Roman allgemein als Hacker bezeichnet wird) und Informationssammler für die „Central Intelligence Corporation“ CIC, die kommerziell arbeitende Nachfolgeorganisation der CIA. Die Pizza-Firma "Cosa Nostra" gehört dem Mafia-Boss Onkel Enzo, der seinen Kunden eine Zustellzeit von 30 Minuten garantiert, andernfalls ruft Onkel Enzo beim Kunden an, entschuldigt sich am Folgetag persönlich und spendiert ihm einen Freiurlaub in Italien. Der versagende Pizzabote wird zur Strafe gemäß den juristisch zulässigen Bestimmungen seines Arbeitsvertrages getötet. Der Staat hat sich fast vollständig aus dem öffentlichen Leben zurückgezogen und alle gesellschaftlichen Ordnungsfunktionen Privatunternehmen überlassen, Die Mafia ist nur eine der Franchise-Ketten wie alle anderen Institutionen auch: Polizei und Justiz, Regierungen und Staaten sind sämtlich privatisiert. Es herrschen Hyperinflation und extreme soziale Ungleichheit.</p>
-                    <p>Aus dieser anarchokapitalistischen Dystopie fliehen die handelnden Personen immer wieder in das Metaversum, einer Mischung zwischen Internet und MMORPG, durch die sie sich mit Avataren bewegen. Hiro und seine Partnerin, die 15-jährige Kurierfahrerin Y.T. werden Zeugen und Mitspieler in der Suche nach einer geheimnisvollen Droge namens Snow Crash, die verheerende Auswirkungen hat. Bei dieser Suche stehen ihnen die Kommunikationsmöglichkeiten der virtuellen Realität, die Kollegen der Mafia und nicht zuletzt Hiros Samuraischwerter (Katana und Wakizashi) zur Seite. Diese Unterstützung ist auch notwendig, da eine gewaltige Verschwörung im Gange ist, die von L. Bob Rife initiiert wurde, dem Eigentümer des weltweiten Glasfasernetzes und Förderer einer Pfingstler-Sekte.</p>
-                </div>
-                <div class="col-sm-6">
-                    <h3>Stil</h3>
-                    <p>Der Roman ist vergleichsweise konventionell erzählt. In 71 Kapiteln, die nicht völlig chronologisch geordnet sind, wird der Leser mit den Protagonisten und den Regeln und Schauplätzen der staatsfreien Welt, in der der Roman spielt, vertraut gemacht. Diese Schilderungen sind zum Teil sehr anschaulich, in etwa in der Beschreibung von Compton:</p>
-                    <code>„Leprakranke grillen Hunde an Stöcken über brennendem Benzin. Obdachlose schieben Einkaufswagen vor sich her, in denen sich haushoch Millionen- und Milliardendollarscheine türmen, die sie aus Abwässerkanälen zusammengekratzt haben. Kadaver am Straßenrand - enorme Kadaver, so große Kadaver, dass es sich nur um Menschen handeln kann, kleben einen ganzen Block lang zermatscht am Bordstein.“</code>
-                    <p>Sie wechseln sich ab mit rasanten Verfolgungsjagden (William Gibson empfahl den Roman mit den Worten: „Schneller als alles, was Sie bisher gelesen haben“), längeren Dialog-Passagen, in denen die zum Verständnis nötigen Hintergrundinformationen über Glossolalie, über sumerische Mythologie, sowie über Unterschiede und Gemeinsamkeiten zwischen religiöser Bekehrung und viraler Ansteckung referiert werden, und zum Teil recht drastisch geschilderten Schwertkampf-, Schusswechsel- oder Sexszenen. Besonders unterhaltsam sind die satirischen Passagen, in denen sich Stephenson über den Zeitdruck lustig macht, der auf Pizzaboten lastet, oder über die absurde Bürokratie bei den amerikanischen Bundesbehörden: Das FBI taucht als letzter staatlicher Rest der Vereinigten Staaten auf, beschäftigt sich aber nur mehr mit der Produktion von Software. Um deren Inhalt vor den Programmierern geheim zu halten, müssen sich diese kafkaesken Ritualen und Arbeitserschwernissen unterziehen. Das strikte Verbot, sich dabei Notizen zu machen, macht sich über das Ideal des papierfreien Büros lustig, das in der Entstehungszeit des Romans propagiert wurde.</p>
-                </div>
-                <div class="col-sm-12">
-                    <h3>Leitideen</h3>
-                    <p>Die Handlung spinnt sich um die These, eine Droge, ein Virus und eine Religion seien strukturidentisch, nämlich Formen sich selbst reproduzierender parasitärer Information. Dabei wird der Mythos von der babylonischen Sprachverwirrung umgedeutet als historisches Ereignis, in dem Enki, der euhemeristisch als Stadtherr der sumerischen Stadt Eridu beschrieben wird, absichtlich die Kommunikation und damit die als Virenbefall beschriebene Indoktrinierbarkeit der Menschen durch die Göttin Aschera erstmals unterbrochen habe. Dieses Ereignis sei der Ursprung des Bewusstseins durch den Zusammenbruch der bikameralen Psyche - so der Titel eines kontrovers diskutierten Hauptwerks des amerikanischen Psychologen Julian Jaynes, auf den sich Stephenson hier stützt.[1]</p>
-                    <p>Wie auch in seinem späteren Cryptonomicon hat der Autor umfangreich recherchiert und präsentiert dem Leser dieses Wissen in langen Dialogen zwischen Hiro und dem Bibliothekar, einer intelligenten Recherche-Software.</p>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                 </div>
             </div>
         </div>
@@ -158,52 +140,23 @@
                 <div class="col-sm-6">
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                 </div>
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
             </div>
-            <h1 class="text-center">#3</h1>
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
+            <div class="position--absolute position--bottom position--right">
+                <p class="headline--supersize">
+                    MAKE
+                </p>
             </div>
         </div>
     </div>
     <div class="slide slide--4">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-            </div>
-
-            <h1 class="text-center">#4</h1>
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
+            <div class="position--absolute absolute position--top position--left">
+                <p class="headline--supersize">
+                    UP
+                </p>
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                 </div>
                 <div class="col-sm-6">
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
@@ -213,26 +166,13 @@
     </div>
     <div class="slide slide--5">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-            </div>
-            <h1 class="text-center">#5</h1>
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
+            <div class="position--absolute position--bottom position--left">
+                <p class="headline--supersize">
+                    YOUR
+                </p>
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                 </div>
                 <div class="col-sm-6">
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
@@ -242,26 +182,13 @@
     </div>
     <div class="slide slide--6">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-            </div>
-            <h1 class="text-center">#6</h1>
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
+            <div class="position--absolute absolute position--top position--left">
+                <p class="headline--supersize">
+                    MIND
+                </p>
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                 </div>
                 <div class="col-sm-6">
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
@@ -269,33 +196,45 @@
             </div>
         </div>
     </div>
-    <div class="slide slide--7">
+    <div class="slide slide--8">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-            </div>
-            <h1 class="text-center">#7</h1>
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-            </div>
+            <p class="text-center headline--supersize">
+                LOOK
+            </p>
+        </div>
+    </div>
+
+    <div class="slide slide--9">
+        <div class="container">
+            <p class="text-center headline--supersize">
+                AHEAD
+            </p>
+        </div>
+    </div>
+
+
+    <div class="slide slide--10">
+        <div class="container">
+            <p class="text-center headline--supersize">
+                AND
+            </p>
+        </div>
+    </div>
+
+    <div class="slide slide--11">
+        <div class="container">
+            <p class="text-center headline--supersize">
+                FEEL
+            </p>
+        </div>
+    </div>
+
+
+    <div class="slide slide--12">
+        <div class="container">
+            <p class="text-center headline--supersize">
+                FREE
+            </p>
         </div>
     </div>
 
