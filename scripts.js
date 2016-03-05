@@ -1,5 +1,14 @@
 var app = angular.module('app', []);
 
+app.directive('dots', function () {
+    return {
+        templateUrl: 'src/templates/dots.html',
+        link: function () {
+
+        }
+    };
+});
+
 app.factory('scrollService', function ($window, $document) {
     return {
         progress: function () {
