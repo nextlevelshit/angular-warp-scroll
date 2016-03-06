@@ -114,17 +114,21 @@ sidebar {
 
 .list--dots .list__item {
     opacity: 0.2;
+    cursor: pointer;
+    overflow: hidden;
+    height: 30px;
+    margin-bottom: 20px;
 }
 
 .list--dots .list__item.active {
     opacity: 1;
+    color: #CC0A4D;
 }
 
 .list--dots .list__item::before {
     content: "·";
     font-size: 60px;
-    line-height: 20px;
-    /*text-shadow: 0, 0, 20px, white;*/
+    line-height: 10px;
 }
 
 /*

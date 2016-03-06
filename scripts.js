@@ -6,8 +6,15 @@ app.directive('wsDots', function () {
         scope: {
             status: '='
         },
-        link: function () {
+        link: function (scope) {
             // TODO: Mode dots functions from service into here
+            scope.scrollToSlide = function (key) {
+                var scrollTo = key * scope.status.slideHeight;
+
+                console.log(key, scope.status.slideHeight, scrollTo);
+
+                $('body, html').animate({scrollTop: scrollTo}, 200);
+            };
         }
     };
 });
@@ -74,6 +81,10 @@ app.factory('scrollService', function ($window, $document) {
 
         slidesNum: function () {
             return this.slidesDom().length;
+        },
+
+        slideHeight: function () {
+            return (this.contentHeight() - this.containerHeight()) / (this.slidesNum() - 1);
         },
 
         activeSlide: function () {
@@ -176,8 +187,21 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
             slide.style.webkitTransform = cssTransform;
 
             var step = stepsRelativeToAllSlides * key;
-            slide.style.opacity = getOpacity(zoomFactor, step);
-            slide.style.display = (transformSlide < (slideHeight / 2)) ? 'block' : 'none';
+            var opacity = getOpacity(zoomFactor, step);
+            var blur = (opacity < 0.9) ? Math.round(opacity * 100) / 20 : 0;
+            var cssFilter = 'blur(' + blur + 'px)';
+
+            slide.style.opacity = opacity;
+            slide.style.display = (transformSlide < slideHeight) ? 'block' : 'none';
+
+            if (blur) {
+                slide.style.filter = slide.style.webkitFilter = cssFilter;
+            } else {
+                slide.style.filter = slide.style.webkitFilter = '';
+            }
+
+            //console.log(key, opacity, blur);
+            //slide.style.display = (transformSlide < (slideHeight / 2)) ? 'block' : 'none';
 
             slidesTranslateList.push(transformSlide);
         });
@@ -191,15 +215,24 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
         }, 300));
     }
 
+    /*
+     * Add event handler to user scrolling
+     */
+
     angular.element($window).bind('scroll', function() {
         init();
         $scope.$apply();
     });
 
+    /*
+     * Give scroll information to frontend
+     */
+
     function updateStatus () {
         $scope.scrollStatus = {
             progress: scrollService.progress(),
-            slides: scrollService.slides()
+            slides: scrollService.slides(),
+            slideHeight: scrollService.slideHeight()
         };
     }
 
