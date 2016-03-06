@@ -1,19 +1,30 @@
 var app = angular.module('app', []);
 
-app.directive('dots', function () {
+app.directive('wsDots', function () {
     return {
         templateUrl: 'src/templates/dots.html',
+        scope: {
+            status: '='
+        },
         link: function () {
-
+            // TODO: Mode dots functions from service into here
         }
     };
 });
 
 app.factory('scrollService', function ($window, $document) {
     return {
+        /**
+         * Current scorll progress between 0 and 1
+         * @returns {number}
+         */
         progress: function () {
             return this.scrollTop() / this.maxScroll();
         },
+
+        /*
+         * Scroll parameter handling
+         */
 
         scrollTop: function () {
             return $window.pageYOffset;
@@ -40,26 +51,59 @@ app.factory('scrollService', function ($window, $document) {
 
             return h1 > h2 ? h2 : h1;
         },
+
+        /*
+         * Slides handling
+         */
+        slides: function () {
+            var slides = [];
+
+            angular.forEach(this.slidesDom(), function (slide, key) {
+                slides.push({
+                    id: key,
+                    active: this.activeSlide() === key
+                });
+            }, this);
+
+            return slides;
+        },
+
+        slidesDom: function () {
+            return document.querySelectorAll('.slide');
+        },
+
+        slidesNum: function () {
+            return this.slidesDom().length;
+        },
+
+        activeSlide: function () {
+            var minDiff = 1000, // TODO: Try to avoid this decleration to make it more reliable
+                closestKey;
+
+            angular.forEach(this.slidesDom(), function (slide, key) {
+                var translate = slide.style.transform.match(/-?\d+[.]?\d*/,'')[0];
+                var m = Math.abs(0 - translate);
+
+                if (m < minDiff) {
+                    minDiff = m;
+                    closestKey = key;
+                }
+            });
+
+            return closestKey;
+        }
     };
 });
 
 app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollService) {
     var $body = angular.element(document).find('body');
+    // TODO: Deprecated
     var $allSlides = document.querySelectorAll('.slide');
+    // TODO: Deprecated
     var allSlidesNum = $allSlides.length;
     var accelerationFactor = 1;
-    var $dots = $('sidebar > .list--dots');
 
     $('body').height(allSlidesNum * 500);
-
-    for (var i = 0; i < allSlidesNum; i++) {
-        var $listItem = '<li class="list__item active" ng-click="scrollToslide(' + i + ')"/>';
-        $dots.append($listItem);
-    }
-
-    $scope.scrollToSlide = function (slide) {
-        alert(slide);
-    };
 
     /**
      * Get current opacity of every slide related to its
@@ -79,14 +123,16 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
         return num > 0 ? num : 0;
     }
 
+    // TODO: Deprecated
     function scrollToClosestSlide(slide, slideHeight) {
         var scrollTop = slide * slideHeight;
-        var latency = Math.abs((getScrollTop() / scrollTop));
+        var latency = Math.abs((scrollService.scrollTop() / scrollTop));
         if (latency > 0.7 && latency < 1.3) {
             $('body, html').animate({scrollTop: scrollTop}, 200);
         }
     }
 
+    // TODO: Deprecated
     function pickClosestKey(array, num) {
         var minDiff = 1000;
         var closestKey;
@@ -100,11 +146,6 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
         return closestKey;
     }
 
-    function toggleDots(active) {
-        $dots.children('.active').removeClass('active');
-        $($dots.children()[active]).addClass('active');
-    }
-
     function increaseIfGreaterThanZero(num) {
         return num <= 0 ? num : num * 3;
     }
@@ -113,10 +154,6 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
      * Iterate through all slides and take them to the
      * right place on Z scala realted to scroll progress
      */
-
-    $document.bind('scroll', function () {
-        scrollHandler();
-    });
 
     function scrollHandler() {
         var bodyHeight = $body.prop('offsetHeight');
@@ -145,20 +182,31 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
             slidesTranslateList.push(transformSlide);
         });
 
-        var closestSlide = pickClosestKey(slidesTranslateList, 0);
-
-        toggleDots(closestSlide);
-
-
         //$('body, html').stop();
         clearTimeout($.data(this, 'scrollCheck'));
         $.data(this, 'scrollCheck', setTimeout(function () {
             // TODO: Add Snap function
+            //var closestSlide = pickClosestKey(slidesTranslateList, 0);
             //scrollToClosestSlide(closestSlide, slideHeightRelativeToWindow);
         }, 300));
-        $scope.activeSlide = closestSlide;
-
     }
 
-    scrollHandler();
+    angular.element($window).bind('scroll', function() {
+        init();
+        $scope.$apply();
+    });
+
+    function updateStatus () {
+        $scope.scrollStatus = {
+            progress: scrollService.progress(),
+            slides: scrollService.slides()
+        };
+    }
+
+    function init () {
+        scrollHandler();
+        updateStatus();
+    }
+
+    init();
 });

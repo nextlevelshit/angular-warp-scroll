@@ -1,1 +1,6 @@
-Yes yes yoar
+<ul class="list list--dots">
+    <li class="list__item"
+        ng-repeat="(key, slide) in status.slides"
+        ng-class="{active: slide.active}"
+        ng-click="scrollToSlide(key)"></li>
+</ul>
