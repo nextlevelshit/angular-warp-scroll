@@ -114,7 +114,7 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
     var allSlidesNum = $allSlides.length;
     var accelerationFactor = 1;
 
-    $('body').height(allSlidesNum * 500);
+    $('body').height(allSlidesNum * 600);
 
     /**
      * Get current opacity of every slide related to its
