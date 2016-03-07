@@ -13,7 +13,7 @@ app.directive('wsDots', function () {
 
                 console.log(key, scope.status.slideHeight, scrollTo);
 
-                $('body, html').animate({scrollTop: scrollTo}, 200);
+                $('body, html').animate({scrollTop: scrollTo}, 1200);
             };
         }
     };
@@ -63,6 +63,7 @@ app.factory('scrollService', function ($window, $document) {
          * Slides handling
          */
         slides: function () {
+            // TODO: Add correct z-index to each slide
             var slides = [];
 
             angular.forEach(this.slidesDom(), function (slide, key) {
@@ -114,7 +115,7 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
     var allSlidesNum = $allSlides.length;
     var accelerationFactor = 1;
 
-    $('body').height(allSlidesNum * 600);
+    $('body').height(allSlidesNum * 1000);
 
     /**
      * Get current opacity of every slide related to its
@@ -122,7 +123,7 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
      */
 
     function getOpacity(x, shift) {
-        var parabola = getParabola(x, shift, 0.03);
+        var parabola = getParabola(x, shift, 0.01);
         return roundNegativeToZero(parabola);
     }
 
