@@ -1,114 +1,246 @@
-angular.module('app', [
-        'pc035860.scrollWatch'
-    ])
+var app = angular.module('app', []);
 
-    // Remove scrollWatch and replace with native progress calculation
+app.directive('wsDots', function () {
+    return {
+        templateUrl: 'src/templates/dots.html',
+        scope: {
+            status: '='
+        },
+        link: function (scope) {
+            // TODO: Mode dots functions from service into here
+            scope.scrollToSlide = function (key) {
+                var scrollTo = key * scope.status.slideHeight;
 
-    .controller('MainCtrl', function ($scope, $log, $window, $document) {
-        $scope.localsJSON = null;
-        $scope.scrollWatch = null;
+                console.log(key, scope.status.slideHeight, scrollTo);
 
-        var $body = angular.element(document).find('body');
-        var $allSlides = document.querySelectorAll('.slide');
-        var allSlidesNum = $allSlides.length;
-        var $dots = $('sidebar > .list--dots');
-        var $listItem = '<li class="list__item active"/>';
-
-        for (var i = 0; i < allSlidesNum; i++) {
-            $dots.append($listItem);
+                $('body, html').animate({scrollTop: scrollTo}, 1200);
+            };
         }
+    };
+});
 
-
+app.factory('scrollService', function ($window, $document) {
+    return {
         /**
-         * Get current opacity of every slide related to its
-         * position on Z scala
-         * @param x
-         * @param shift
-         * @returns {*}
+         * Current scorll progress between 0 and 1
+         * @returns {number}
+         */
+        progress: function () {
+            return this.scrollTop() / this.maxScroll();
+        },
+
+        /*
+         * Scroll parameter handling
          */
 
-        function getOpacity(x, shift) {
-            var parabola = getParabola(x, shift, 0.02);
-            return roundNegativeToZero(parabola);
-        }
+        scrollTop: function () {
+            return $window.pageYOffset;
+        },
 
-        function getParabola (x, shift, slope){
-            return - Math.pow((x - shift), 2) / slope + 1;
-        }
+        maxScroll: function () {
+            return this.contentHeight() - this.containerHeight();
+        },
 
-        function roundNegativeToZero (num) {
-            return num > 0 ? num : 0;
-        }
+        contentHeight: function () {
+            var doc = $document[0].documentElement,
+                body = $document[0].body;
 
-        function scrollToClosestSlide () {
+            return Math.max(
+                body.scrollHeight, doc.scrollHeight,
+                body.offsetHeight, doc.offsetHeight,
+                doc.clientHeight
+            );
+        },
 
-        }
+        containerHeight: function () {
+            var h1 = $document[0].documentElement.clientHeight,
+                h2 = $window.innerHeight;
 
-        function pickClosestKey (array, num) {
-            var i = 0;
-            var minDiff = 1000;
-            var closestKey;
-            for(i in array){
-                var m = Math.abs(num - array[i]);
-                if(m < minDiff){
+            return h1 > h2 ? h2 : h1;
+        },
+
+        /*
+         * Slides handling
+         */
+        slides: function () {
+            // TODO: Add correct z-index to each slide
+            var slides = [];
+
+            angular.forEach(this.slidesDom(), function (slide, key) {
+                slides.push({
+                    id: key,
+                    active: this.activeSlide() === key
+                });
+            }, this);
+
+            return slides;
+        },
+
+        slidesDom: function () {
+            return document.querySelectorAll('.slide');
+        },
+
+        slidesNum: function () {
+            return this.slidesDom().length;
+        },
+
+        slideHeight: function () {
+            return (this.contentHeight() - this.containerHeight()) / (this.slidesNum() - 1);
+        },
+
+        activeSlide: function () {
+            var minDiff = 1000, // TODO: Try to avoid this decleration to make it more reliable
+                closestKey;
+
+            angular.forEach(this.slidesDom(), function (slide, key) {
+                var translate = slide.style.transform.match(/-?\d+[.]?\d*/,'')[0];
+                var m = Math.abs(0 - translate);
+
+                if (m < minDiff) {
                     minDiff = m;
-                    closestKey = i;
+                    closestKey = key;
                 }
-            }
+            });
+
             return closestKey;
         }
+    };
+});
 
+app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollService) {
+    var $body = angular.element(document).find('body');
+    // TODO: Deprecated
+    var $allSlides = document.querySelectorAll('.slide');
+    // TODO: Deprecated
+    var allSlidesNum = $allSlides.length;
+    var accelerationFactor = 1;
 
-        /**
-         * Iterate through all slides and take them to the
-         * right place on Z scala realted to scroll progress
-         */
+    $('body').height(allSlidesNum * 1000);
 
-        $scope.$on('default', function ($evt, a, locals) {
-            var bodyHeight = $body.prop('offsetHeight');
-            var windowHeight = window.innerHeight;
-            var bodyHeightRelativeToWindow = bodyHeight / (bodyHeight - windowHeight);
-            var slideHeight = bodyHeight / allSlidesNum;
-            var slideHeightRelativeToWindow = (bodyHeight - windowHeight) / (allSlidesNum - 1);
+    /**
+     * Get current opacity of every slide related to its
+     * position on Z scala
+     */
 
-            var zoomFactor = locals.$progress;
-            var zoomPerspective = bodyHeight * (zoomFactor - 1);
-            var stepsRelativeToAllSlides = 1 / (allSlidesNum - 1);
+    function getOpacity(x, shift) {
+        var parabola = getParabola(x, shift, 0.01);
+        return roundNegativeToZero(parabola);
+    }
 
-            var slidesTranslateList = [];
+    function getParabola(x, shift, slope) {
+        return -Math.pow((x - shift), 2) / slope + 1;
+    }
 
-            angular.forEach($allSlides, function(slide, key) {
-                var transformFactor = $allSlides.length - key - zoomFactor;
-                var transformSlide = zoomPerspective + slideHeight * transformFactor;
-                var cssTransform = 'translateZ(' + transformSlide + 'px)';
-                slide.style.transform = cssTransform;
-                slide.style.webkitTransform = cssTransform;
+    function roundNegativeToZero(num) {
+        return num > 0 ? num : 0;
+    }
 
-                var step = stepsRelativeToAllSlides * key;
-                slide.style.opacity = getOpacity(zoomFactor, step);
+    // TODO: Deprecated
+    function scrollToClosestSlide(slide, slideHeight) {
+        var scrollTop = slide * slideHeight;
+        var latency = Math.abs((scrollService.scrollTop() / scrollTop));
+        if (latency > 0.7 && latency < 1.3) {
+            $('body, html').animate({scrollTop: scrollTop}, 200);
+        }
+    }
 
-                slidesTranslateList.push(transformSlide);
-            });
+    // TODO: Deprecated
+    function pickClosestKey(array, num) {
+        var minDiff = 1000;
+        var closestKey;
+        for (i in array) {
+            var m = Math.abs(num - array[i]);
+            if (m < minDiff) {
+                minDiff = m;
+                closestKey = i;
+            }
+        }
+        return closestKey;
+    }
 
-            var closestSlide = pickClosestKey(slidesTranslateList, 0);
+    function increaseIfGreaterThanZero(num) {
+        return num <= 0 ? num : num * 3;
+    }
 
-            //console.log('current scroll top', document.documentElement.scrollTop);
+    /**
+     * Iterate through all slides and take them to the
+     * right place on Z scala realted to scroll progress
+     */
 
-            //console.log(locals.$progress, (bodyHeight - windowHeight) / document.documentElement.scrollTop);
+    function scrollHandler() {
+        var bodyHeight = $body.prop('offsetHeight');
+        var windowHeight = window.innerHeight;
+        var slideHeight = bodyHeight / allSlidesNum;
+        var slideHeightRelativeToWindow = (bodyHeight - windowHeight) / (allSlidesNum - 1);
 
-            $dots.children('.active').removeClass('active');
+        var zoomFactor = scrollService.progress();
+        var zoomPerspective = bodyHeight * (zoomFactor - 1);
+        var stepsRelativeToAllSlides = 1 / (allSlidesNum - 1);
 
-            $($dots.children()[closestSlide]).addClass('active');
+        var slidesTranslateList = [];
 
-            $document.bind('scroll', function() {
-                clearTimeout( $.data( this, 'scrollCheck' ) );
-                $.data( this, 'scrollCheck', setTimeout(function() {
-                    //Here you can call a function after scroll stopped
-                    //console.log(pickClosestKey(slidesTranslateList, 0));
-                    //var scrollTop = bodyHeightRelativeToWindow * (bodyHeight - windowHeight) / allSlidesNum * pickClosestKey(slidesTranslateList, 0);
-                    var scrollTop = closestSlide * slideHeightRelativeToWindow;
-                    $('body, html').animate({scrollTop: scrollTop}, 400);
-                }, 150) );
-            });
+        angular.forEach($allSlides, function (slide, key) {
+            var transformFactor = $allSlides.length - key - zoomFactor;
+            var transformSlide = zoomPerspective + slideHeight * transformFactor;
+            var cssTransform = 'translateZ(' + transformSlide + 'px)';
+
+            slide.style.transform = cssTransform;
+            slide.style.webkitTransform = cssTransform;
+
+            var step = stepsRelativeToAllSlides * key;
+            var opacity = getOpacity(zoomFactor, step);
+            var blur = (opacity < 0.9) ? Math.round(opacity * 100) / 20 : 0;
+            var cssFilter = 'blur(' + blur + 'px)';
+
+            slide.style.opacity = opacity;
+            slide.style.display = (transformSlide < slideHeight) ? 'block' : 'none';
+
+            if (blur) {
+                slide.style.filter = slide.style.webkitFilter = cssFilter;
+            } else {
+                slide.style.filter = slide.style.webkitFilter = '';
+            }
+
+            //console.log(key, opacity, blur);
+            //slide.style.display = (transformSlide < (slideHeight / 2)) ? 'block' : 'none';
+
+            slidesTranslateList.push(transformSlide);
         });
+
+        //$('body, html').stop();
+        clearTimeout($.data(this, 'scrollCheck'));
+        $.data(this, 'scrollCheck', setTimeout(function () {
+            // TODO: Add Snap function
+            //var closestSlide = pickClosestKey(slidesTranslateList, 0);
+            //scrollToClosestSlide(closestSlide, slideHeightRelativeToWindow);
+        }, 300));
+    }
+
+    /*
+     * Add event handler to user scrolling
+     */
+
+    angular.element($window).bind('scroll', function() {
+        init();
+        $scope.$apply();
     });
+
+    /*
+     * Give scroll information to frontend
+     */
+
+    function updateStatus () {
+        $scope.scrollStatus = {
+            progress: scrollService.progress(),
+            slides: scrollService.slides(),
+            slideHeight: scrollService.slideHeight()
+        };
+    }
+
+    function init () {
+        scrollHandler();
+        updateStatus();
+    }
+
+    init();
+});

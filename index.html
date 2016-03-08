@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<!-- Hey, nice to see you out here! -->
+<!-- If your looking for that warp scroll, you will find what you're searching for -->
+<!-- on my GitHub repository right here: https://github.com/nextlevelshit/angular-warp-scroll -->
+<!-- · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·  -->
+<!-- Feel free to use this effect on your website and contribute to my repo -->
+<!-- Sincerly, Michael Czechowski -->
 <html ng-app="app">
 
 <head>
@@ -10,52 +16,13 @@
     <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 
     <script src="node_modules/angular/angular.min.js"></script>
-    <script src="node_modules/angular-scroll-watch/src/angular-scroll-watch.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script src="scripts.js"></script>
 </head>
 
-<body ng-controller="MainCtrl">
-
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Project name</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="../navbar/">Default</a></li>
-                <li><a href="../navbar-static-top/">Static top</a></li>
-                <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div>
-</nav>
+<body ng-controller="scrollCtrl">
 
 <div class="border top"></div>
 <div class="border right"></div>
@@ -63,24 +30,17 @@
 <div class="border left"></div>
 
 <sidebar>
-    <ul class="list list--dots">
-    </ul>
+    <ws-dots status="scrollStatus"></ws-dots>
 </sidebar>
 
-<div id="scroll-stage"
-     scroll-watch="{from: 0, to: -1}"
-     sw-broadcast="{
-        $rootScope: true,
-        'default': true
-      }">
-
-    <div class="slide slide--1">
-        <div class="container">
+<div id="scroll-stage">
+    <div class="slide">
+        <div class="wrapper">
             <div class="jumbotron background-portrait">
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-4">
-                        <h1>Servus,</h1>
-                        <p>Ich bin ein erfahrener Webentwickler, Programmierer und UI Spezialist. Schöne Benutzeroberflächen sind meine Passion!</p>
+                        <h1>Grüezi Wohl,</h1>
+                        <p class="text-larger">Ich bin ein erfahrener Webentwickler und mache Webseiten <i>erleb-bar</i>.</p>
                     </div>
                 </div>
             </div>
@@ -108,133 +68,155 @@
                 </div>
                 <div class="col-sm-4">
                     <p class="text-center">
-                        <a href="#" target="_blank">
+                        <a href="//www.xing.com/profile/Michael_Czechowski" target="_blank">
                             <i class="fa fa-2x fa-xing-square"> </i>
                             <span class="text-large"> Xing</span>
                         </a>
                     </p>
                 </div>
             </div>
+
+            <div class="scroll-down"></div>
         </div>
     </div>
-    <div class="slide slide--2">
-        <div class="container">
-            <div class="position--absolute position--top position--left">
-                <p class="headline--supersize">
-                    DON'T
+
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex">
+                <div class="flex__item">
+                    <p class="headline--supersize">
+                        WEB
+                    </p>
+                </div>
+                <div class="flex__item flex__item--end">
+                    <img src="assets/web-logos.png" alt="HTML5, CSS3, SASS, PHP, AngularJS, Symphon" class="img-responsive">
+                </div>
+                <div class="flex__item flex__item--end">
+                    <p>
+                        <strong>Seit 10 Jahren programmiere, gestalte und konzipiere ich Webseiten.</strong></p>
+                        <p>Hierbei benutze ich neueste Technologien wie
+                        <a href="//developer.mozilla.org/de/docs/Web/HTML/HTML5" target="_blank">HTML5</a>,
+                        <a href="//de.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">CSS3</a>,
+                        <a href="//sass-lang.com/" target="_blank">SASS</a>,
+                        <a href="//php.net/manual/de/intro-whatis.php" target="_blank">PHP</a>,
+                        <a href="//www.javascript.com/" target="_blank">JavaScript</a>,
+                        <a href="//angularjs.org/" target="_blank">AngularJS</a>
+                        und diverse Frameworks.
+                    </p>
+                    <p>Interaktiv und spielerisch sollte eine Webseite sein!</p>
+                    <p>Und frei sollte der Code sein! Auf GitHub tummeln wir uns herum und geben unser geistiges Eigentum frei zur Verfügung.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex">
+                <div class="flex__item">
+                    <p class="headline--supersize">
+                        APP
+                    </p>
+                </div>
+
+                <div class="flex__item flex__item--end">
+                    <p>Egal ob Apps für iOS, Android oder Windows Phones, heute führt kein Weg mehr an den kleinen Alleskönnern vorbei.</p>
+                    <p>Neueste Technologien wie ionic und PhoneGap helfen Entwicklern wie mir aus herkömmlichen Webseiten native Apps zu programmieren. Infrastruktur und Programmlogik werden oft auf Server verlagert, so dass die App nur noch eine Hülle darstellt. Über Schnittstellen, sog. APIs, werden im Handumdrehen Apps kreiert.</p>
+                    <p>An der Oberfläche versteckt sich der Chrome Browser und im Hintergrund laufen alle nativen Funktionen eines Smartphones. GPS, Kamera, Notifications etc. lassen sich so schnell implementieren.</p>
+                </div>
+
+                <div class="flex__item flex__item--end">
+                    <img src="assets/iphone.png" alt="Apps for iOS, Android and Windows Phones" class="img-responsive">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex flex--reverse">
+                <div class="flex__item">
+                    <p class="headline--supersize">
+                        SHOP
+                    </p>
+                </div>
+                <div class="flex__item flex__item--end">
+                    <img src="assets/shop-logos.png" alt="Magento, Shopware, Sylius" class="img-responsive">
+                </div>
+                <div class="flex__item flex__item--end">
+                    <p>In meiner Laufbahn als Webentwickler habe ich bereits zahlreiche Internet Shops umgesetzt.</p>
+                    <p>Einen guten Webshop macht sein ansprechendes Design, die schnellen Ladezeiten und eine intuitive Benutzerführung aus.</p>
+                    <p><strong>Mein Job ist es hierbei die Zielgruppe genaustens zu analysieren und das Nutzerserlebnis so herauszuarbeiten, dass der Kunden findet, was er sehnlichst so gesucht hat... und vielleicht noch ein paar andere Produkte ;-)</strong></p>
+                    <p>Die meiste Erfahrung habe ich hierbei bei der <a href="//www.wacg.de" target="_blank">Werbeagentur caesar&gustav</a> in Stuttgart gesammelt. Herzlichen Dank!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex flex--center">
+                <p class="text-center text-larger">
+                    Alles was ich hier tue, das tue ich aus ...
                 </p>
             </div>
-
-            <div class="row">
-                <div class="col-sm-6">
-                </div>
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-            </div>
         </div>
     </div>
-    <div class="slide slide--3">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-            </div>
-            <div class="position--absolute position--bottom position--right">
-                <p class="headline--supersize">
-                    MAKE
+
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex flex--center">
+                <p class="text-center headline--supersize">
+                    PASSION
                 </p>
             </div>
         </div>
     </div>
-    <div class="slide slide--4">
-        <div class="container">
-            <div class="position--absolute absolute position--top position--left">
-                <p class="headline--supersize">
-                    UP
+
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex flex--center">
+                <p class="text-center headline--supersize">
+                    HINGABE
                 </p>
             </div>
-            <div class="row">
-                <div class="col-sm-6">
-                </div>
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-            </div>
         </div>
     </div>
-    <div class="slide slide--5">
-        <div class="container">
-            <div class="position--absolute position--bottom position--left">
-                <p class="headline--supersize">
-                    YOUR
+
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex flex--center">
+                <p class="text-center headline--supersize">
+                    MUT
                 </p>
             </div>
-            <div class="row">
-                <div class="col-sm-6">
-                </div>
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-            </div>
         </div>
     </div>
-    <div class="slide slide--6">
-        <div class="container">
-            <div class="position--absolute absolute position--top position--left">
-                <p class="headline--supersize">
-                    MIND
+
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex flex--center">
+                <p class="text-center headline--supersize">
+                    UND
                 </p>
             </div>
-            <div class="row">
-                <div class="col-sm-6">
-                </div>
-                <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex flex--center">
+                <p class="text-center text-larger">
+                    ... weil ich nicht anders kann, als <strong>dich</strong> und deine Kunden zu verzaubern!
+                </p>
             </div>
         </div>
     </div>
-    <div class="slide slide--8">
-        <div class="container">
-            <p class="text-center headline--supersize">
-                LOOK
-            </p>
-        </div>
-    </div>
 
-    <div class="slide slide--9">
-        <div class="container">
-            <p class="text-center headline--supersize">
-                AHEAD
-            </p>
-        </div>
-    </div>
-
-
-    <div class="slide slide--10">
-        <div class="container">
-            <p class="text-center headline--supersize">
-                AND
-            </p>
-        </div>
-    </div>
-
-    <div class="slide slide--11">
-        <div class="container">
-            <p class="text-center headline--supersize">
-                FEEL
-            </p>
-        </div>
-    </div>
-
-
-    <div class="slide slide--12">
-        <div class="container">
-            <p class="text-center headline--supersize">
-                FREE
-            </p>
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex flex--center">
+                <img src="assets/nls_logo_rasperry.png" alt="NEXT LEVEL SHIT" class="vert-responsive img-center">
+            </div>
         </div>
     </div>
 
