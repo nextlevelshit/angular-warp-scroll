@@ -112,12 +112,8 @@ app.factory('scrollService', function ($window, $document) {
 
 app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollService) {
     var $body = angular.element(document).find('body');
-    // TODO: Deprecated
-    var $allSlides = document.querySelectorAll('.slide');
-    // TODO: Deprecated
-    var allSlidesNum = $allSlides.length;
-    var accelerationFactor = 1;
-
+    var allSlidesNum = scrollService.slidesNum();
+    var $allSlides = scrollService.slidesDom();
     $('body').height(allSlidesNum * 1000);
 
     /**
@@ -138,33 +134,6 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
         return num > 0 ? num : 0;
     }
 
-    // TODO: Deprecated
-    function scrollToClosestSlide(slide, slideHeight) {
-        var scrollTop = slide * slideHeight;
-        var latency = Math.abs((scrollService.scrollTop() / scrollTop));
-        if (latency > 0.7 && latency < 1.3) {
-            $('body, html').animate({scrollTop: scrollTop}, 200);
-        }
-    }
-
-    // TODO: Deprecated
-    function pickClosestKey(array, num) {
-        var minDiff = 1000;
-        var closestKey;
-        for (i in array) {
-            var m = Math.abs(num - array[i]);
-            if (m < minDiff) {
-                minDiff = m;
-                closestKey = i;
-            }
-        }
-        return closestKey;
-    }
-
-    function increaseIfGreaterThanZero(num) {
-        return num <= 0 ? num : num * 3;
-    }
-
     /**
      * Iterate through all slides and take them to the
      * right place on Z scala realted to scroll progress
@@ -172,9 +141,7 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
 
     function scrollHandler() {
         var bodyHeight = $body.prop('offsetHeight');
-        var windowHeight = window.innerHeight;
         var slideHeight = bodyHeight / allSlidesNum;
-        var slideHeightRelativeToWindow = (bodyHeight - windowHeight) / (allSlidesNum - 1);
 
         var zoomFactor = scrollService.progress();
         var zoomPerspective = bodyHeight * (zoomFactor - 1);

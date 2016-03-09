@@ -25,26 +25,58 @@ p {
 a,
 a:link,
 a:visited {
-    color: #CC0A4D;
+    color: #2A2A2A;
     text-decoration: none !important;
+    border-bottom: 1px dotted #30b6f5;
 }
 
 a:hover,
 a:active {
-    color: rgba(204, 10, 77, 1) !important;
-    text-shadow: 0 0 5px rgba(204, 10, 77, 0.6);
+    color: #6acbfa !important;
+    text-shadow: 0 0 5px #bde7fa;
     text-decoration: none !important;
 }
 
-#scroll-stage {
+#ws-slides {
     perspective: 1000px;
     position: fixed;
     height: 100%;
     width: 100%;
 }
 
+.slide__wrapper {
+    perspective: 1000px;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+
+.slide__wrapper.hide-to-left {
+    transform-origin: top left;
+    animation: hide-to-left 2s;
+    animation-fill-mode: both;
+}
+
+@keyframes hide-to-left {
+    0% {
+        display: block;
+        opacity: 1;
+    }
+
+    99% {
+        transform: rotateY(90deg) translateZ(-100px);
+        display: block;
+        opacity: 0.01;
+    }
+
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
+
 .slide {
-    padding: 90px;
+    padding: 40px 90px;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -241,11 +273,18 @@ sidebar {
 
 .headline--supersize {
     margin: 0;
-    font-size: 200px;
-    line-height: 150px;
+    font-size: 130px;
+    /*line-height: 120px;*/
     font-family: "Montserrat", sans-serif !important;
     /*text-transform: uppercase;*/
     font-weight: 700;
+}
+
+.headline--small {
+    text-transform: uppercase;
+    color: #CC0A4D;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
 }
 
 .headline--strike {
@@ -306,7 +345,8 @@ sidebar {
 .flex {
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
+    align-content: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
 }
@@ -316,6 +356,11 @@ sidebar {
     justify-content: center !important;
 }
 
+.flex--columns {
+    flex-direction: column;
+    flex-flow: column wrap;
+}
+
 .flex--reverse {
     align-items: flex-end !important;
 }
@@ -323,7 +368,7 @@ sidebar {
 .flex__item {
     width: 50%;
     min-width: calc(100% / 3);
-    max-height: 100%;
+    /*max-height: 33%;*/
     padding: 0 15px;
     /*height: 50%;*/
     /*overflow: hidden;*/
@@ -336,4 +381,12 @@ sidebar {
 
 .flex--reverse .flex__item--end {
     align-self: flex-start !important;
+}
+
+/**
+ * Margins and Spacings
+ */
+
+.margin__top {
+    margin-top: 32px;
 }

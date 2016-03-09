@@ -8,7 +8,7 @@
 <html ng-app="app">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>Angular Warp Scroll</title>
 
     <link rel="stylesheet" type="text/css" href="styles.css">
@@ -33,193 +33,219 @@
     <ws-dots status="scrollStatus"></ws-dots>
 </sidebar>
 
-<div id="scroll-stage">
-    <div class="slide">
-        <div class="wrapper">
-            <div class="jumbotron background-portrait">
+<div id="ws-slides">
+    <!--<div class="slide__wrapper">-->
+        <div class="slide">
+            <div class="wrapper">
+                <div class="jumbotron background-portrait">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-4">
+                            <h1>Grüezi Wohl,</h1>
+                            <p class="text-larger">
+                                Ich bin ein erfahrener Webentwickler und mache Webseiten
+                                <i>erleb-bar</i>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-center headline--strike">
+                    <span class="headline--strike__inner">Follow me</span>
+                </p>
+
                 <div class="row">
-                    <div class="col-sm-8 col-sm-offset-4">
-                        <h1>Grüezi Wohl,</h1>
-                        <p class="text-larger">Ich bin ein erfahrener Webentwickler und mache Webseiten <i>erleb-bar</i>.</p>
+                    <div class="col-sm-4">
+                        <p class="text-center">
+                            <a href="//stackoverflow.com/users/4892206/nextlevelshit" target="_blank">
+                                <i class="fa fa-2x fa-stack-overflow"> </i>
+                                <span class="text-large"> Stack Overflow</span>
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="text-center">
+                            <a href="//github.com/nextlevelshit" target="_blank">
+                                <i class="fa fa-2x fa-github-square"> </i>
+                                <span class="text-large"> GitHub</span>
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="text-center">
+                            <a href="//www.xing.com/profile/Michael_Czechowski" target="_blank">
+                                <i class="fa fa-2x fa-xing-square"> </i>
+                                <span class="text-large"> Xing</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="scroll-down"></div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="wrapper">
+                <div class="flex">
+                    <div class="flex__item">
+                        <p class="headline--supersize">
+                            WEB
+                        </p>
+                    </div>
+                    <div class="flex__item flex__item--end">
+                        <img src="assets/web-logos.png" alt="HTML5, CSS3, SASS, PHP, AngularJS, Symphon"
+                             class="img-responsive">
+                    </div>
+                    <div class="flex__item flex__item--end">
+                        <p>
+                            <strong>Seit 10 Jahren programmiere, gestalte und konzipiere ich Webseiten.</strong>
+                        </p>
+                        <p class="headline--small">Mein Schweizer Taschenmesser</p>
+                        <p>Hierbei benutze ich neueste Technologien wie
+                            <a href="//developer.mozilla.org/de/docs/Web/HTML/HTML5" target="_blank">HTML5</a>,
+                            <a href="//de.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">CSS3</a>,
+                            <a href="//sass-lang.com/" target="_blank">SASS</a>,
+                            <a href="//php.net/manual/de/intro-whatis.php" target="_blank">PHP</a>,
+                            <a href="//www.javascript.com/" target="_blank">JavaScript</a>,
+                            <a href="//angularjs.org/" target="_blank">AngularJS</a>
+                            und etliche andere Frameworks und Programmiersprachen.
+                        </p>
+
+                        <p class="headline--small">Open Source</p>
+
+                        <p>Ich liebe es meine Arbeiten anderen Entwicklern zur Verfügung zu stellen. Denn in unserer Welt ist ›geistiges Eigentum‹ ein Fremdwort. Wir teilen alles brüderlich und schwesterlich!</p>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <p class="text-center headline--strike">
-                <span class="headline--strike__inner">Follow me</span>
-            </p>
+        <div class="slide">
+            <div class="wrapper">
+                <div class="flex flex--columns">
+                    <div class="flex__item">
+                        <p class="headline--supersize">
+                            APP
+                        </p>
+                    </div>
 
-            <div class="row">
-                <div class="col-sm-4">
-                    <p class="text-center">
-                        <a href="//stackoverflow.com/users/4892206/nextlevelshit" target="_blank">
-                            <i class="fa fa-2x fa-stack-overflow"> </i>
-                            <span class="text-large"> Stack Overflow</span>
-                        </a>
+                    <div class="flex__item margin__top text-right">
+                        <p class="headline--small">Applications für Smartphones</p>
+
+                        <p>Neueste Technologien wie ionic und PhoneGap helfen Entwicklern wie mir aus herkömmlichen
+                            Webseiten native Apps zu programmieren. Infrastruktur und Programmlogik werden oft auf
+                            Server verlagert, so dass die App nur noch eine Hülle darstellt. Über Schnittstellen, sog.
+                            APIs, werden im Handumdrehen Apps kreiert.</p>
+
+                        <p class="headline--small">Egal ob für iOS, Android oder Windows Phones</p>
+
+                        <p>An der Oberfläche versteckt sich der Chrome Browser und im Hintergrund laufen alle nativen
+                            Funktionen eines Smartphones. GPS, Kamera, Notifications etc. lassen sich so schnell
+                            implementieren.</p>
+                    </div>
+
+                    <div class="flex__item flex__item--end">
+                        <img src="assets/iphone.png" alt="Apps for iOS, Android and Windows Phones"
+                             class="img-responsive">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="wrapper">
+                <div class="flex flex--reverse">
+                    <div class="flex__item">
+                        <p class="headline--supersize">
+                            SHOP
+                        </p>
+                    </div>
+                    <div class="flex__item flex__item--end">
+                        <img src="assets/shop-logos.png" alt="Magento, Shopware, Sylius" class="img-responsive">
+                    </div>
+                    <div class="flex__item flex__item--end">
+                        <p class="headline--small">Großes Angebot</p>
+                        <p>Inzwischen gibt es zahlreiche Webshop Lösungen. Eine Vielzahl davon ist sogar Open Source. <strong>Doch welcher Webshop passt zu dir?</strong></p>
+
+                        <p class="headline--small">Know How</p>
+                        <p>Seit mehreren Jahren arbeite ich für die <a href="//www.wacg.de" target="_blank">Werbeagentur caesar&gustav</a> in Stuttgart. Unser Hauptgeschäft sind Internet-Shops in den verschiedensten Bereichen. Von Arznei zu Kaffee und Sex Toys ist alles dabei.</p>
+
+                        <p class="headline--small">Durchdacht ab dem ersten Pinselstrich</p>
+                        <p>Mir ist klar, dass alles schon gestern fertig sein sollte. Doch wer nicht die Ruhe bewahrt, vergeudet Energie, Ideen und Zeit. Ich bin den Stress in Agenturen gewohnt und behalte immer einen kühlen Kopf.</p>
+                        <p class="headline--small">Kluge Worte schmeicheln nicht</p>
+                        <p>Deswegen nehme ich mir vor jedem Projekt genug Zeit, um genau abzuschätzen wie lange jeder Abschnitt dauern wird. Hierbei mache ich keine falschen Versprechen und bin stets realistischer Pessimist mit einem Lächeln im Gesicht.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="wrapper">
+                <div class="flex flex--center">
+                    <p class="text-center text-larger">
+                        Alles was ich hier tue, das tue ich mit ...
                     </p>
                 </div>
-                <div class="col-sm-4">
-                    <p class="text-center">
-                        <a href="//github.com/nextlevelshit" target="_blank">
-                            <i class="fa fa-2x fa-github-square"> </i>
-                            <span class="text-large"> GitHub</span>
-                        </a>
-                    </p>
-                </div>
-                <div class="col-sm-4">
-                    <p class="text-center">
-                        <a href="//www.xing.com/profile/Michael_Czechowski" target="_blank">
-                            <i class="fa fa-2x fa-xing-square"> </i>
-                            <span class="text-large"> Xing</span>
-                        </a>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="wrapper">
+                <div class="flex flex--center">
+                    <p class="text-center headline--supersize">
+                        LEIDENSCHAFT
                     </p>
                 </div>
             </div>
-
-            <div class="scroll-down"></div>
         </div>
-    </div>
 
-    <div class="slide">
-        <div class="wrapper">
-            <div class="flex">
-                <div class="flex__item">
-                    <p class="headline--supersize">
-                        WEB
+        <div class="slide">
+            <div class="wrapper">
+                <div class="flex flex--center">
+                    <p class="text-center headline--supersize">
+                        ZUVERSICHT
                     </p>
                 </div>
-                <div class="flex__item flex__item--end">
-                    <img src="assets/web-logos.png" alt="HTML5, CSS3, SASS, PHP, AngularJS, Symphon" class="img-responsive">
-                </div>
-                <div class="flex__item flex__item--end">
-                    <p>
-                        <strong>Seit 10 Jahren programmiere, gestalte und konzipiere ich Webseiten.</strong></p>
-                        <p>Hierbei benutze ich neueste Technologien wie
-                        <a href="//developer.mozilla.org/de/docs/Web/HTML/HTML5" target="_blank">HTML5</a>,
-                        <a href="//de.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">CSS3</a>,
-                        <a href="//sass-lang.com/" target="_blank">SASS</a>,
-                        <a href="//php.net/manual/de/intro-whatis.php" target="_blank">PHP</a>,
-                        <a href="//www.javascript.com/" target="_blank">JavaScript</a>,
-                        <a href="//angularjs.org/" target="_blank">AngularJS</a>
-                        und diverse Frameworks.
-                    </p>
-                    <p>Interaktiv und spielerisch sollte eine Webseite sein!</p>
-                    <p>Und frei sollte der Code sein! Auf GitHub tummeln wir uns herum und geben unser geistiges Eigentum frei zur Verfügung.</p>
-                </div>
             </div>
         </div>
-    </div>
 
-    <div class="slide">
-        <div class="wrapper">
-            <div class="flex">
-                <div class="flex__item">
-                    <p class="headline--supersize">
-                        APP
+        <div class="slide">
+            <div class="wrapper">
+                <div class="flex flex--center">
+                    <p class="text-center headline--supersize">
+                        VERSTAND
                     </p>
                 </div>
-
-                <div class="flex__item flex__item--end">
-                    <p>Egal ob Apps für iOS, Android oder Windows Phones, heute führt kein Weg mehr an den kleinen Alleskönnern vorbei.</p>
-                    <p>Neueste Technologien wie ionic und PhoneGap helfen Entwicklern wie mir aus herkömmlichen Webseiten native Apps zu programmieren. Infrastruktur und Programmlogik werden oft auf Server verlagert, so dass die App nur noch eine Hülle darstellt. Über Schnittstellen, sog. APIs, werden im Handumdrehen Apps kreiert.</p>
-                    <p>An der Oberfläche versteckt sich der Chrome Browser und im Hintergrund laufen alle nativen Funktionen eines Smartphones. GPS, Kamera, Notifications etc. lassen sich so schnell implementieren.</p>
-                </div>
-
-                <div class="flex__item flex__item--end">
-                    <img src="assets/iphone.png" alt="Apps for iOS, Android and Windows Phones" class="img-responsive">
-                </div>
             </div>
         </div>
-    </div>
 
-    <div class="slide">
-        <div class="wrapper">
-            <div class="flex flex--reverse">
-                <div class="flex__item">
-                    <p class="headline--supersize">
-                        SHOP
+        <div class="slide">
+            <div class="wrapper">
+                <div class="flex flex--center">
+                    <p class="text-center headline--supersize">
+                        HERZBLUT
                     </p>
                 </div>
-                <div class="flex__item flex__item--end">
-                    <img src="assets/shop-logos.png" alt="Magento, Shopware, Sylius" class="img-responsive">
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="wrapper">
+                <div class="flex flex--center">
+                    <p class="text-center text-larger">
+                        ... und weil ich nicht anders kann, als <strong>dich</strong> und deine Kunden zu verzaubern!
+                    </p>
                 </div>
-                <div class="flex__item flex__item--end">
-                    <p>In meiner Laufbahn als Webentwickler habe ich bereits zahlreiche Internet Shops umgesetzt.</p>
-                    <p>Einen guten Webshop macht sein ansprechendes Design, die schnellen Ladezeiten und eine intuitive Benutzerführung aus.</p>
-                    <p><strong>Mein Job ist es hierbei die Zielgruppe genaustens zu analysieren und das Nutzerserlebnis so herauszuarbeiten, dass der Kunden findet, was er sehnlichst so gesucht hat... und vielleicht noch ein paar andere Produkte ;-)</strong></p>
-                    <p>Die meiste Erfahrung habe ich hierbei bei der <a href="//www.wacg.de" target="_blank">Werbeagentur caesar&gustav</a> in Stuttgart gesammelt. Herzlichen Dank!</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="wrapper">
+                <div class="flex flex--center">
+                    <img src="assets/nls_logo_rasperry.png" alt="NEXT LEVEL SHIT" class="vert-responsive img-center">
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="slide">
-        <div class="wrapper">
-            <div class="flex flex--center">
-                <p class="text-center text-larger">
-                    Alles was ich hier tue, das tue ich aus ...
-                </p>
-            </div>
-        </div>
-    </div>
+        <!--</div>-->
 
-    <div class="slide">
-        <div class="wrapper">
-            <div class="flex flex--center">
-                <p class="text-center headline--supersize">
-                    PASSION
-                </p>
-            </div>
-        </div>
     </div>
-
-    <div class="slide">
-        <div class="wrapper">
-            <div class="flex flex--center">
-                <p class="text-center headline--supersize">
-                    HINGABE
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div class="wrapper">
-            <div class="flex flex--center">
-                <p class="text-center headline--supersize">
-                    MUT
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div class="wrapper">
-            <div class="flex flex--center">
-                <p class="text-center headline--supersize">
-                    UND
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div class="wrapper">
-            <div class="flex flex--center">
-                <p class="text-center text-larger">
-                    ... weil ich nicht anders kann, als <strong>dich</strong> und deine Kunden zu verzaubern!
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div class="wrapper">
-            <div class="flex flex--center">
-                <img src="assets/nls_logo_rasperry.png" alt="NEXT LEVEL SHIT" class="vert-responsive img-center">
-            </div>
-        </div>
-    </div>
-
 </div>
 </body>
 
