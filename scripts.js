@@ -63,10 +63,13 @@ app.factory('scrollService', function ($window, $document) {
          * Slides handling
          */
         slides: function () {
-            // TODO: Add correct z-index to each slide
             var slides = [];
 
             angular.forEach(this.slidesDom(), function (slide, key) {
+                // Add correct z-index
+                slide.style.zIndex = this.slidesNum() - key;
+
+                // Add active state
                 slides.push({
                     id: key,
                     active: this.activeSlide() === key
