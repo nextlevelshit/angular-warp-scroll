@@ -47,17 +47,27 @@ a:active {
     width: 100%;
 }
 
-.slide__wrapper {
-    perspective: 1000px;
-    position: fixed;
-    height: 100%;
+.slide {
+    padding: 40px 90px;
     width: 100%;
-}
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
 
-.slide__wrapper.hide-to-left {
-    transform-origin: top left;
-    animation: hide-to-left 2s;
-    animation-fill-mode: both;
+    &__wrapper {
+        perspective: 1000px;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+
+        &.hide-to-left {
+            transform-origin: top left;
+            animation: hide-to-left 2s;
+            animation-fill-mode: both;
+        }
+    }
 }
 
 @keyframes hide-to-left {
@@ -76,16 +86,6 @@ a:active {
         display: none;
         opacity: 0;
     }
-}
-
-.slide {
-    padding: 40px 90px;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    top: 0;
 }
 
 /*
@@ -126,37 +126,39 @@ sidebar {
     margin: 0;
     padding: 0;
     list-style-type: none;
-}
 
-.list__item {
-    display: block;
-}
+    &--vertical {
+        display: block;
 
-.list--vertical {
-    display: block;
-}
+        .list__item {
+            display: inline-block;
+        }
+    }
 
-.list--vertical .list__item {
-    display: inline-block;
-}
+    &--dots {
+        .list__item {
+            opacity: 0.2;
+            cursor: pointer;
+            overflow: hidden;
+            height: 30px;
+            margin-bottom: 20px;
 
-.list--dots .list__item {
-    opacity: 0.2;
-    cursor: pointer;
-    overflow: hidden;
-    height: 30px;
-    margin-bottom: 20px;
-}
+            &.active {
+                opacity: 1;
+                color: #CC0A4D;
+            }
 
-.list--dots .list__item.active {
-    opacity: 1;
-    color: #CC0A4D;
-}
+            &::before {
+                content: "·";
+                font-size: 60px;
+                line-height: 10px;
+            }
+        }
+    }
 
-.list--dots .list__item::before {
-    content: "·";
-    font-size: 60px;
-    line-height: 10px;
+    &__item {
+        display: block;
+    }
 }
 
 /*
@@ -268,7 +270,7 @@ sidebar {
 
 .background--portrait {
     height: 330px;
-    background-image: url('assets/moi.png');
+    background-image: url('../assets/moi.png');
     background-repeat: no-repeat;
     background-position: left top;
     background-size: auto 100%;
