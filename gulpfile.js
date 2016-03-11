@@ -1,4 +1,3 @@
-/*global require*/
 var gulp = require('gulp'),
     gutil = require('gulp-util');
 
@@ -80,4 +79,4 @@ gulp.task('scss', function () {
 });
 
 gulp.task('default', ['build']);
-gulp.task('example', ['server', 'watch', 'wat']);
+gulp.task('example', ['server', 'watch']);
