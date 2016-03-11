@@ -25,7 +25,7 @@ var getTodayStr = function () {
 
 var config = {
     appRoot: '',
-    src: 'src/angular-warp-scroll.js',
+    src: 'src/*.js',
     buildDir: 'build',
     banner: '/*! <%= pkg.name %>\n' +
     'version: <%= pkg.version %>\n' +
@@ -47,6 +47,8 @@ gulp.task('build', ['lint'], function () {
 
 gulp.task('lint', function () {
     return gulp.src(config.src)
+        .pipe(cache('linting'))
+        .pipe(jshint.extract('auto'))
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'));
 });
@@ -56,27 +58,18 @@ gulp.task('watch', function () {
 });
 
 
-gulp.task('server', function () {
+gulp.task('serve', function () {
     connect.server({
         root: config.appRoot,
         port: 9000
     });
 });
 
-gulp.task('lint', function () {
-    return gulp.src('src/{,**/}*.{html,js}', {base: './'})
-        .pipe(cache('lint-example'))
-        .pipe(jshint.extract('auto'))
-        .pipe(jshint())
-        .pipe(jshint.reporter('jshint-stylish'));
-});
-
 gulp.task('scss', function () {
-    return gulp.src('src/scss/*.scss', {base: './'})
+    return gulp.src('src/*/*.scss', {base: './'})
         .pipe(changed('./', {extension: '.css'}))
         .pipe(less())
         .pipe(gulp.dest('./'));
 });
 
 gulp.task('default', ['build']);
-gulp.task('example', ['server', 'watch']);
