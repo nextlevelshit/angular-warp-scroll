@@ -1,6 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Ruda:400,700);
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,900,300,100);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Knewave);
+@import url(https://fonts.googleapis.com/css?family=Teko:400,600,700);
+@import url(https://fonts.googleapis.com/css?family=Anton);
 
 body {
     margin: 0;
@@ -263,12 +266,19 @@ sidebar {
     position: relative;
 }
 
-.background-portrait {
+.background--portrait {
     height: 330px;
     background-image: url('assets/moi.png');
     background-repeat: no-repeat;
     background-position: left top;
     background-size: auto 100%;
+}
+
+.background--ci {
+    position: relative;
+    background: #CC0A4D;
+    height: 330px;
+    width: calc(330px / 1.6);
 }
 
 .headline--supersize {
@@ -285,6 +295,21 @@ sidebar {
     color: #CC0A4D;
     letter-spacing: 3px;
     margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.headline--ci {
+    position: absolute;
+    top: 37px;
+    left: 10px;
+
+    font-family: 'Anton', sans-serif;
+    font-weight: 700;
+    font-size: 60px;
+    color: white;
+    text-align: center;
+    text-shadow: 5px 5px 0 #CC0A4D, -5px -5px 0 #6ACBFA;
+    transform: rotate(-10deg);
 }
 
 .headline--strike {
