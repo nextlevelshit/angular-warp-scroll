@@ -143,27 +143,40 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
     function scrollHandler() {
         // TODO: Add EventListener to Window resize
 
-        var zoomPerspective = scrollService.outerHeight() * (scrollService.progress() - 1);
         var stepsRelativeToAllSlides = 1 / (scrollService.slidesNum() - 1);
 
         angular.forEach(scrollService.slidesDom(), function (slide, key) {
-            var transformFactor = scrollService.slidesNum() - key - scrollService.progress();
-            var transformSlide = zoomPerspective + scrollService.slideHeight() * transformFactor;
-            var cssTransform = 'translateZ(' + transformSlide + 'px)';
 
-            slide.style.transform = cssTransform;
-            slide.style.webkitTransform = cssTransform;
+            /**
+             * Set css transform
+             */
+
+            // TODO: Refactor calculation, it is to complicated
+            var transform = (scrollService.outerHeight() * (scrollService.progress() - 1)) + scrollService.slideHeight() * (scrollService.slidesNum() - key - scrollService.progress());
+
+            slide.style.transform = slide.style.webkitTransform = 'translateZ(' + transform + 'px)';
+
+            /**
+             * Set css opacity
+             */
 
             var step = stepsRelativeToAllSlides * key;
-            var opacity = getOpacity(scrollService.progress(), step);
-            var blur = (opacity < 0.9) ? Math.round(opacity * 100) / 20 : 0;
-            var cssFilter = 'blur(' + blur + 'px)';
+            var opacity = slide.style.opacity = getOpacity(scrollService.progress(), step);
 
-            slide.style.opacity = opacity;
-            slide.style.display = (transformSlide < scrollService.slideHeight()) ? 'block' : 'none';
+            /**
+             * Toggle css display
+             */
+
+            slide.style.display = (transform < scrollService.slideHeight()) ? 'block' : 'none';
+
+            /**
+             * Set css filter
+             */
+
+            var blur = (opacity < 0.9) ? Math.round(opacity * 100) / 20 : 0;
 
             if (blur) {
-                slide.style.filter = slide.style.webkitFilter = cssFilter;
+                slide.style.filter = slide.style.webkitFilter = 'blur(' + blur + 'px)';
             } else {
                 slide.style.filter = slide.style.webkitFilter = '';
             }
