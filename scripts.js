@@ -181,14 +181,6 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
                 slide.style.filter = slide.style.webkitFilter = '';
             }
         });
-
-        //$('body, html').stop();
-        clearTimeout($.data(this, 'scrollCheck'));
-        $.data(this, 'scrollCheck', setTimeout(function () {
-            // TODO: Add Snap function
-            //var scrollTo = scrollService.activeSlide() * scrollService.slideHeight();
-            //$('body, html').animate({scrollTop: scrollTo}, 1200);
-        }, 300));
     }
 
     /*
