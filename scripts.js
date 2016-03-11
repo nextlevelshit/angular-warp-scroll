@@ -7,12 +7,8 @@ app.directive('wsDots', function () {
             status: '='
         },
         link: function (scope) {
-            // TODO: Mode dots functions from service into here
             scope.scrollToSlide = function (key) {
                 var scrollTo = key * scope.status.slideHeight;
-
-                console.log(key, scope.status.slideHeight, scrollTo);
-
                 $('body, html').animate({scrollTop: scrollTo}, 1200);
             };
         }
@@ -111,10 +107,7 @@ app.factory('scrollService', function ($window, $document) {
 });
 
 app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollService) {
-    var $body = angular.element(document).find('body');
-    var allSlidesNum = scrollService.slidesNum();
-    var $allSlides = scrollService.slidesDom();
-    $('body').height(allSlidesNum * 1000);
+    $('body').height(scrollService.slidesNum() * 1000);
 
     /**
      * Get current opacity of every slide related to its
@@ -140,17 +133,16 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
      */
 
     function scrollHandler() {
-        var bodyHeight = $body.prop('offsetHeight');
-        var slideHeight = bodyHeight / allSlidesNum;
+        var slideHeight = scrollService.contentHeight() / scrollService.slidesNum();
 
         var zoomFactor = scrollService.progress();
-        var zoomPerspective = bodyHeight * (zoomFactor - 1);
-        var stepsRelativeToAllSlides = 1 / (allSlidesNum - 1);
+        var zoomPerspective = scrollService.contentHeight() * (scrollService.progress() - 1);
+        var stepsRelativeToAllSlides = 1 / (scrollService.slidesNum() - 1);
 
         var slidesTranslateList = [];
 
-        angular.forEach($allSlides, function (slide, key) {
-            var transformFactor = $allSlides.length - key - zoomFactor;
+        angular.forEach(scrollService.slidesDom(), function (slide, key) {
+            var transformFactor = scrollService.slidesNum() - key - scrollService.progress();
             var transformSlide = zoomPerspective + slideHeight * transformFactor;
             var cssTransform = 'translateZ(' + transformSlide + 'px)';
 
@@ -158,7 +150,7 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
             slide.style.webkitTransform = cssTransform;
 
             var step = stepsRelativeToAllSlides * key;
-            var opacity = getOpacity(zoomFactor, step);
+            var opacity = getOpacity(scrollService.progress(), step);
             var blur = (opacity < 0.9) ? Math.round(opacity * 100) / 20 : 0;
             var cssFilter = 'blur(' + blur + 'px)';
 
@@ -170,10 +162,6 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
             } else {
                 slide.style.filter = slide.style.webkitFilter = '';
             }
-
-            //console.log(key, opacity, blur);
-            //slide.style.display = (transformSlide < (slideHeight / 2)) ? 'block' : 'none';
-
             slidesTranslateList.push(transformSlide);
         });
 
@@ -181,8 +169,8 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
         clearTimeout($.data(this, 'scrollCheck'));
         $.data(this, 'scrollCheck', setTimeout(function () {
             // TODO: Add Snap function
-            //var closestSlide = pickClosestKey(slidesTranslateList, 0);
-            //scrollToClosestSlide(closestSlide, slideHeightRelativeToWindow);
+            //var scrollTo = scrollService.activeSlide() * scrollService.slideHeight();
+            //$('body, html').animate({scrollTop: scrollTo}, 1200);
         }, 300));
     }
 
