@@ -10,7 +10,7 @@ var connect = require('gulp-connect'),
     rename = require('gulp-rename'),
     annotate = require('gulp-ng-annotate'),
     header = require('gulp-header'),
-    less = require('gulp-sass');
+    sass = require('gulp-sass');
 
 var pkg = require('./package.json');
 
@@ -34,11 +34,12 @@ var config = {
     '<%= pkg.repository.url %> */\n'
 };
 
-gulp.task('build', ['lint'], function () {
+gulp.task('build', ['sass', 'lint'], function () {
     return gulp.src(config.src)
         .pipe(annotate())
         .pipe(header(config.banner, {pkg: pkg, today: getTodayStr()}))
         .pipe(gulp.dest(config.buildDir))
+        // Minify js output
         .pipe(uglify())
         .pipe(rename({extname: '.min.js'}))
         .pipe(header(config.banner, {pkg: pkg, today: getTodayStr()}))
@@ -57,7 +58,6 @@ gulp.task('watch', function () {
     gulp.watch(config.src, ['build']);
 });
 
-
 gulp.task('serve', function () {
     connect.server({
         root: config.appRoot,
@@ -65,11 +65,16 @@ gulp.task('serve', function () {
     });
 });
 
-gulp.task('scss', function () {
-    return gulp.src('src/*/*.scss', {base: './'})
+gulp.task('sass', function () {
+    return gulp.src('./src/scss/styles.scss')
         .pipe(changed('./', {extension: '.css'}))
-        .pipe(less())
-        .pipe(gulp.dest('./'));
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest(config.buildDir))
+        // Minify css output
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(rename({extname: '.min.css'}))
+        .pipe(gulp.dest(config.buildDir))
 });
 
 gulp.task('default', ['build']);
+gulp.task('dev', ['build', 'serve', 'watch']);
