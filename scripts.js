@@ -1,6 +1,6 @@
 var app = angular.module('app', []);
 
-app.directive('wsDots', function () {
+app.directive('dots', function () {
     return {
         templateUrl: 'src/templates/dots.html',
         scope: {
