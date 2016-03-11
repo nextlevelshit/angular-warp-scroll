@@ -25,7 +25,8 @@ var getTodayStr = function () {
 
 var config = {
     appRoot: '',
-    src: 'src/*.js',
+    src: 'src/angular-warp-scroll.js',
+    scssDir: 'src/scss/*.scss',
     buildDir: 'build',
     banner: '/*! <%= pkg.name %>\n' +
     'version: <%= pkg.version %>\n' +
@@ -34,7 +35,7 @@ var config = {
     '<%= pkg.repository.url %> */\n'
 };
 
-gulp.task('build', ['sass', 'lint'], function () {
+gulp.task('build', ['lint'], function () {
     return gulp.src(config.src)
         .pipe(annotate())
         .pipe(header(config.banner, {pkg: pkg, today: getTodayStr()}))
@@ -58,6 +59,10 @@ gulp.task('watch', function () {
     gulp.watch(config.src, ['build']);
 });
 
+gulp.task('watch:sass', function () {
+    gulp.watch(config.scssDir, ['sass']);
+});
+
 gulp.task('serve', function () {
     connect.server({
         root: config.appRoot,
@@ -77,4 +82,4 @@ gulp.task('sass', function () {
 });
 
 gulp.task('default', ['build']);
-gulp.task('dev', ['build', 'serve', 'watch']);
+gulp.task('dev', ['build', 'watch', 'watch:sass', 'serve']);
