@@ -8,7 +8,7 @@ app.directive('wsDots', function () {
         },
         link: function (scope) {
             scope.scrollToSlide = function (key) {
-                var scrollTo = key * scope.status.slideHeight;
+                var scrollTo = key * scope.status.slideScrollHeight;
                 $('body, html').animate({scrollTop: scrollTo}, 1200);
             };
         }
@@ -34,10 +34,10 @@ app.factory('scrollService', function ($window, $document) {
         },
 
         maxScroll: function () {
-            return this.contentHeight() - this.containerHeight();
+            return this.outerHeight() - this.innerHeight();
         },
 
-        contentHeight: function () {
+        outerHeight: function () {
             var doc = $document[0].documentElement,
                 body = $document[0].body;
 
@@ -48,7 +48,7 @@ app.factory('scrollService', function ($window, $document) {
             );
         },
 
-        containerHeight: function () {
+        innerHeight: function () {
             var h1 = $document[0].documentElement.clientHeight,
                 h2 = $window.innerHeight;
 
@@ -84,7 +84,11 @@ app.factory('scrollService', function ($window, $document) {
         },
 
         slideHeight: function () {
-            return (this.contentHeight() - this.containerHeight()) / (this.slidesNum() - 1);
+            return  this.outerHeight() / this.slidesNum();
+        },
+
+        slideScrollHeight: function () {
+            return (this.outerHeight() - this.innerHeight()) / (this.slidesNum() - 1);
         },
 
         activeSlide: function () {
@@ -107,7 +111,11 @@ app.factory('scrollService', function ($window, $document) {
 });
 
 app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollService) {
-    $('body').height(scrollService.slidesNum() * 1000);
+    setBodyHeightRelativeToSlidesNum();
+
+    function setBodyHeightRelativeToSlidesNum() {
+        $('body').height(scrollService.slidesNum() * 1000);
+    }
 
     /**
      * Get current opacity of every slide related to its
@@ -133,17 +141,14 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
      */
 
     function scrollHandler() {
-        var slideHeight = scrollService.contentHeight() / scrollService.slidesNum();
+        // TODO: Add EventListener to Window resize
 
-        var zoomFactor = scrollService.progress();
-        var zoomPerspective = scrollService.contentHeight() * (scrollService.progress() - 1);
+        var zoomPerspective = scrollService.outerHeight() * (scrollService.progress() - 1);
         var stepsRelativeToAllSlides = 1 / (scrollService.slidesNum() - 1);
-
-        var slidesTranslateList = [];
 
         angular.forEach(scrollService.slidesDom(), function (slide, key) {
             var transformFactor = scrollService.slidesNum() - key - scrollService.progress();
-            var transformSlide = zoomPerspective + slideHeight * transformFactor;
+            var transformSlide = zoomPerspective + scrollService.slideHeight() * transformFactor;
             var cssTransform = 'translateZ(' + transformSlide + 'px)';
 
             slide.style.transform = cssTransform;
@@ -155,14 +160,13 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
             var cssFilter = 'blur(' + blur + 'px)';
 
             slide.style.opacity = opacity;
-            slide.style.display = (transformSlide < slideHeight) ? 'block' : 'none';
+            slide.style.display = (transformSlide < scrollService.slideHeight()) ? 'block' : 'none';
 
             if (blur) {
                 slide.style.filter = slide.style.webkitFilter = cssFilter;
             } else {
                 slide.style.filter = slide.style.webkitFilter = '';
             }
-            slidesTranslateList.push(transformSlide);
         });
 
         //$('body, html').stop();
@@ -191,7 +195,7 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
         $scope.scrollStatus = {
             progress: scrollService.progress(),
             slides: scrollService.slides(),
-            slideHeight: scrollService.slideHeight()
+            slideScrollHeight: scrollService.slideScrollHeight()
         };
     }
 
