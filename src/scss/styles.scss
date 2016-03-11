@@ -1,3 +1,8 @@
+$fa-font-path: '../node_modules/font-awesome/fonts';
+
+@import '../../node_modules/font-awesome/scss/font-awesome';
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+
 @import url(http://fonts.googleapis.com/css?family=Ruda:400,700);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
@@ -7,7 +12,7 @@ body {
   /*height: 1000px; !* Must be set to NUMBER OF SLIDES * PERSPECTIVE *!*/
   background: white;
   color: #2A2A2A;
-  font-family: "Ruda", sans-serif !important;
+  font-family: 'Ruda', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   /*text-shadow: 0 0 4px white;*/
 }
@@ -145,7 +150,7 @@ sidebar {
       }
 
       &::before {
-        content: "·";
+        content: '·';
         font-size: 60px;
         line-height: 10px;
       }
@@ -209,7 +214,7 @@ sidebar {
 }
 
 .scroll-down::before {
-  content: "»";
+  content: '»';
   position: absolute;
   top: 0;
   /*left: 0;*/
@@ -218,7 +223,7 @@ sidebar {
 }
 
 .scroll-down::after {
-  content: "»";
+  content: '»';
   position: absolute;
   /*left: 0;*/
   /*width: 100%;*/
@@ -284,7 +289,7 @@ sidebar {
     margin: 0;
     font-size: 130px;
     /*line-height: 120px;*/
-    font-family: "Montserrat", sans-serif !important;
+    font-family: 'Montserrat', sans-serif !important;
     /*text-transform: uppercase;*/
     font-weight: 700;
   }
@@ -323,7 +328,7 @@ sidebar {
     }
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       z-index: -1;
       top: 11px;
