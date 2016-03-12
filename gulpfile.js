@@ -82,4 +82,4 @@ gulp.task('sass', function () {
 });
 
 gulp.task('default', ['build']);
-gulp.task('dev', ['build', 'watch', 'watch:sass', 'serve']);
+gulp.task('dev', ['build', 'sass', 'watch', 'watch:sass', 'serve']);
