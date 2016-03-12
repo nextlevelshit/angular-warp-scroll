@@ -1,0 +1,45 @@
+/**
+ * Flex boxes
+ */
+
+.flex {
+  display: flex;
+  align-items: flex-start;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  &--center {
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  &--columns {
+    flex-direction: column;
+    flex-flow: column wrap;
+  }
+
+  &--reverse {
+    align-items: flex-end !important;
+
+    .flex__item--end {
+      align-self: flex-start !important;
+    }
+  }
+
+  &__item {
+    width: 50%;
+    min-width: calc(100% / 3);
+    /*max-height: 33%;*/
+    padding: 0 15px;
+    /*height: 50%;*/
+    /*overflow: hidden;*/
+
+    &--end {
+      align-self: flex-end;
+      order: 1;
+    }
+
+  }
+}

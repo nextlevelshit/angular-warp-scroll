@@ -1,0 +1,28 @@
+/**
+ * Position
+ */
+
+.position {
+  &--absolute {
+    position: absolute;
+    width: 100%;
+  }
+  &--relative {
+    position: relative;
+  }
+  &--top {
+    top: 0;
+  }
+  &--right {
+    right: 0;
+  }
+  &--bottom {
+    bottom: 0;
+  }
+  &--left {
+    left: 0;
+  }
+  &--center {
+    margin: 0 auto;
+  }
+}

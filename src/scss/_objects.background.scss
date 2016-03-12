@@ -1,0 +1,16 @@
+.background {
+  &--portrait {
+    height: 330px;
+    background-image: url('../assets/moi.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: auto 100%;
+  }
+
+  &--ci {
+    position: relative;
+    background: $ci-color-1;
+    height: 330px;
+    width: calc(330px / 1.6);
+  }
+}

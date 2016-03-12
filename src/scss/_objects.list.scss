@@ -1,0 +1,38 @@
+.list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  &--vertical {
+    display: block;
+
+    .list__item {
+      display: inline-block;
+    }
+  }
+
+  &--dots {
+    .list__item {
+      opacity: 0.2;
+      cursor: pointer;
+      overflow: hidden;
+      height: 30px;
+      margin-bottom: 20px;
+
+      &.active {
+        opacity: 1;
+        color: $ci-color-1;
+      }
+
+      &::before {
+        content: '·';
+        font-size: 60px;
+        line-height: 10px;
+      }
+    }
+  }
+
+  &__item {
+    display: block;
+  }
+}

@@ -1,0 +1,48 @@
+/*
+ * Animated scroll down icon
+ */
+
+.scroll-down {
+  position: relative;
+  margin: 0 auto;
+  color: $ci-color-1;
+  font-size: 62px;
+  cursor: default;
+  text-align: center;
+}
+
+.scroll-down::before {
+  content: '»';
+  position: absolute;
+  top: 0;
+  /*left: 0;*/
+  /*width: 100%;*/
+  transform: rotate(90deg);
+}
+
+.scroll-down::after {
+  content: '»';
+  position: absolute;
+  /*left: 0;*/
+  /*width: 100%;*/
+  opacity: 0.1;
+  transform: rotate(90deg) scale(1.6);
+  animation: scroll-down 2.6s infinite;
+}
+
+@keyframes scroll-down {
+  0% {
+    top: -10px;
+    opacity: 0;
+  }
+
+  30% {
+    top: 20px;
+    opacity: 0.3;
+  }
+
+  100% {
+    top: -10px;
+    opacity: 0;
+  }
+}
