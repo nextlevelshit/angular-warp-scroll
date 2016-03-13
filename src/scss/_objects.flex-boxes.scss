@@ -4,41 +4,51 @@
 
 .flex {
   display: flex;
-  flex-flow: row wrap;
-  align-items: flex-start;
-  align-content: center;
-  justify-content: center;
   width: 100%;
   height: 100%;
 
+  @include prefix((
+          flex-flow: row wrap,
+          align-items: flex-start,
+          align-content: center,
+          justify-content: center
+  ), webkit);
+
   &--center {
-    align-items: center !important;
-    justify-content: center !important;
+    @include prefix((
+            align-items: center !important,
+            justify-content: center !important
+    ), webkit);
   }
 
   &--columns {
-    flex-direction: column;
-    flex-flow: column wrap;
+    @include prefix((
+            flex-direction: column,
+            flex-flow: column wrap
+    ), webkit);
   }
 
   &--reverse {
-    align-items: flex-end !important;
+    @include prefix((
+            align-items: flex-end !important
+    ), webkit);
 
     .flex__item--end {
-      align-self: flex-start !important;
+      @include prefix((
+              align-self: flex-start !important
+      ), webkit);
     }
   }
 
   &__item {
     width: 50%;
     min-width: calc(100% / 3);
-    /*max-height: 33%;*/
     padding: 0 15px;
-    /*height: 50%;*/
-    /*overflow: hidden;*/
 
     &--end {
-      align-self: flex-end;
+      @include prefix((
+              align-self: flex-end
+      ), webkit);
       order: 1;
     }
 

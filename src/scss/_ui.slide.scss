@@ -7,7 +7,11 @@
   top: 1vw;
 
   &__wrapper {
-    perspective: 1000px;
+    @include prefix((
+            perspective: 1000px,
+            transform-style: preserve-3d
+    ), webkit);
+
     position: fixed;
     height: 100%;
     width: 100%;
