@@ -15,18 +15,17 @@
   content: '»';
   position: absolute;
   top: 0;
-  /*left: 0;*/
-  /*width: 100%;*/
   transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
 }
 
 .scroll-down::after {
   content: '»';
   position: absolute;
-  /*left: 0;*/
-  /*width: 100%;*/
   opacity: 0.1;
   transform: rotate(90deg) scale(1.6);
+  -webkit-transform: rotate(90deg) scale(1.6);
+
   animation: scroll-down 2.6s infinite;
 }
 
