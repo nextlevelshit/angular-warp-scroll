@@ -10,6 +10,12 @@ $fa-font-path: '../node_modules/font-awesome/fonts';
 $ci-color-1: #CC0A4D;
 $ci-color-2: #30b6f5;
 
+$breakpoint-xxl:  1500px;
+$breakpoint-xl:   1200px;
+$breakpoint-l:     980px;
+$breakpoint-m:     768px;
+$breakpoint-s:     480px;
+
 
 /*----------------------------------------------------------------
 * Generic
@@ -35,6 +41,10 @@ $ci-color-2: #30b6f5;
 @import "base.body";
 @import "base.links";
 @import "base.navigation";
+
+p {
+  font-size: 1.2vw;
+}
 
 /*----------------------------------------------------------------
 * Helper classes
