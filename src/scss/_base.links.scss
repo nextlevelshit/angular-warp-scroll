@@ -1,0 +1,18 @@
+/**
+ * Hyperlinks
+ */
+
+a,
+a:link,
+a:visited {
+  color: #2A2A2A;
+  text-decoration: none !important;
+  border-bottom: 1px dotted $ci-color-2;
+}
+
+a:hover,
+a:active {
+  color: lighten($ci-color-2, 10) !important;
+  text-shadow: 0 0 5px #bde7fa;
+  text-decoration: none !important;
+}

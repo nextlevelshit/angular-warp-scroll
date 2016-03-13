@@ -1,0 +1,42 @@
+.slide {
+  width: 98vw;
+  height: 98vh;
+  position: absolute;
+  z-index: 1;
+  left: 1vw;
+  top: 1vw;
+
+  &__wrapper {
+    perspective: 1000px;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+
+    &.hide-to-left {
+      transform-origin: top left;
+      animation: hide-to-left 2s;
+      animation-fill-mode: both;
+    }
+  }
+
+  @media screen and (min-width: $breakpoint-m) {
+    width: 90vw;
+    height: 92vh;
+    left: 5vw;
+    top: 4vh;
+  }
+
+  @media screen and (min-width: $breakpoint-l) {
+    width: 80vw;
+    height: 90vh;
+    left: 10vw;
+    top: 5vh;
+  }
+
+  @media screen and (min-width: $breakpoint-xxl) {
+    width: 70vw;
+    height: 80vh;
+    left: 15vw;
+    top: 10vh;
+  }
+}

@@ -11,15 +11,13 @@
     <meta charset="utf-8"/>
     <title>Angular Warp Scroll</title>
 
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="build/styles.min.css">
 
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <script src="scripts.js"></script>
+    <script src="build/angular-warp-scroll.min.js"></script>
 </head>
 
 <body ng-controller="scrollCtrl">
@@ -29,233 +27,222 @@
 <div class="border bottom"></div>
 <div class="border left"></div>
 
-<sidebar>
+<aside>
     <dots status="scrollStatus"></dots>
-</sidebar>
+</aside>
 
-<div id="ws-slides">
-    <!--<div class="slide__wrapper">-->
-        <div class="slide">
-            <div class="wrapper">
-                <div class="jumbotron background--portrait">
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-4">
-                            <h1>Hallo liebe Welt,</h1>
-                            <p class="text-larger">
-                                Ich bin Micha, ein erfahrener Webentwickler, und mache Webseiten
-                                <i>erleb-bar</i>.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <p class="text-center headline--strike">
-                    <span class="headline--strike__inner">Follow me</span>
-                </p>
-
+<div class="slide__wrapper">
+    <div class="slide">
+        <div class="wrapper">
+            <div class="jumbotron background--portrait">
                 <div class="row">
-                    <div class="col-sm-4">
-                        <p class="text-center">
-                            <a href="//stackoverflow.com/users/4892206/nextlevelshit" target="_blank">
-                                <i class="fa fa-2x fa-stack-overflow"> </i>
-                                <span class="text-large"> Stack Overflow</span>
-                            </a>
-                        </p>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="text-center">
-                            <a href="//github.com/nextlevelshit" target="_blank">
-                                <i class="fa fa-2x fa-github-square"> </i>
-                                <span class="text-large"> GitHub</span>
-                            </a>
-                        </p>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="text-center">
-                            <a href="//www.xing.com/profile/Michael_Czechowski" target="_blank">
-                                <i class="fa fa-2x fa-xing-square"> </i>
-                                <span class="text-large"> Xing</span>
-                            </a>
+                    <div class="col-sm-8 col-sm-offset-4 text-center">
+                        <h1>Hallo liebe Welt,</h1>
+
+                        <p class="text-larger">
+                            Ich bin Michael, ein erfahrener Webentwickler, und mache Webseiten
+                            <i>erleb-bar</i>.
                         </p>
                     </div>
                 </div>
-
-                <div class="scroll-down"></div>
             </div>
+
+            <div class="scroll-down"></div>
         </div>
+    </div>
 
-        <div class="slide">
-            <div class="wrapper">
-                <div class="flex flex--reverse flex--columns">
-                    <div class="flex__item">
-                        <p class="headline--supersize">
-                            BRAND
-                        </p>
-                    </div>
-                    <div class="flex__item flex__item--end">
-                        <img src="assets/apple-grid.png" alt="Magento, Shopware, Sylius" class="img-responsive pull-right" style="max-height: 360px;">
-                    </div>
-                    <div class="flex__item flex__item--end">
-                        <h2 class="headline--small">Corporate Identity</h2>
-                        <p>Schriftzüge, Typografie, Farbpaletten und Logos bilden dein Firmenbild. Ich gestalte mir dir gemeinsam diese eigene kleine Welt der Farben und Symbole.</p>
-
-                        <h2 class="headline--small">Wiedererkennung</h2>
-                        <p>Farben und Formen sind begrenzt. Das entscheidene ist die richtige Mischung. Die Harmonie aus Farben und Formen bildet einen Charakter, der auch wieder erkannt wird.</p>
-
-                        <p class="headline--small">Schein oder Sein</p>
-                        <p>Ich sage immer, die passende Erscheinung zur richtigen Unternehmensphilosophie spiegeln das Innerste am besten wieder. Ich unterstütze sowohl bei der Findung der besten Ausrichtung, sowie bei der Umsetzung des dazu passenden Außenauftritts.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="slide">
-            <div class="wrapper">
-                <div class="flex">
-                    <div class="flex__item">
-                        <p class="headline--supersize">
-                            WEB
-                        </p>
-                    </div>
-                    <div class="flex__item flex__item--end">
-                        <img src="assets/web-logos.png" alt="HTML5, CSS3, SASS, PHP, AngularJS, Symphon"
-                             class="img-responsive">
-                    </div>
-                    <div class="flex__item flex__item--end">
-                        <p>
-                            <strong>Seit 10 Jahren programmiere, gestalte und konzipiere ich Webseiten.</strong>
-                        </p>
-                        <p class="headline--small">Mein Schweizer Taschenmesser</p>
-                        <p>Hierbei benutze ich neueste Technologien wie
-                            <a href="//developer.mozilla.org/de/docs/Web/HTML/HTML5" target="_blank">HTML5</a>,
-                            <a href="//de.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">CSS3</a>,
-                            <a href="//sass-lang.com/" target="_blank">SASS</a>,
-                            <a href="//php.net/manual/de/intro-whatis.php" target="_blank">PHP</a>,
-                            <a href="//www.javascript.com/" target="_blank">JavaScript</a>,
-                            <a href="//angularjs.org/" target="_blank">AngularJS</a>
-                            und etliche andere Frameworks und Programmiersprachen.
-                        </p>
-
-                        <p class="headline--small">Open Source</p>
-
-                        <p>Ich liebe es meine Arbeiten anderen Entwicklern zur Verfügung zu stellen. Denn in unserer Welt ist ›geistiges Eigentum‹ ein Fremdwort. Wir teilen alles brüderlich und schwesterlich!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="slide">
-            <div class="wrapper">
-                <div class="flex flex--columns">
-                    <div class="flex__item">
-                        <p class="headline--supersize text-right">
-                            APP
-                        </p>
-                    </div>
-
-                    <div class="flex__item margin__top text-right">
-                        <h2 class="headline--small">App Entwicklung</h2>
-
-                        <p>Apps sollen intuitiv bedienbar, schick und günstig sein. Die Entwicklung bedarf einer guten Planung, so dass Kosten für spätere Änderungen reduziert werden können.</p>
-
-                        <h2 class="headline--small">Apps für iOS, Android oder Windows Phones</h2>
-
-                        <p>Mittlerweile müssen Apps nicht spezifisch für die jweiligen Betriebssysteme und Endgeräte programmiert werden. Neuste Technologien helfen dabei unabhängig zu entwickeln. Das spart Zeit und Geld!</p>
-                    </div>
-
-                    <div class="flex__item flex__item--end">
-                        <img src="assets/iphone.png" alt="Apps for iOS, Android and Windows Phones"
-                             class="img-responsive">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="slide">
-            <div class="wrapper">
-                <div class="flex flex--reverse flex--columns">
-                    <div class="flex__item">
-                        <p class="headline--supersize">
-                            SHOP
-                        </p>
-                    </div>
-                    <div class="flex__item flex__item--end">
-                        <img src="assets/shop-logos.png" alt="Magento, Shopware, Sylius" class="img-responsive">
-                    </div>
-                    <div class="flex__item flex__item--end">
-                        <h2 class="headline--small">Großes Angebot</h2>
-                        <p>Inzwischen gibt es zahlreiche Webshop Lösungen. Eine Vielzahl davon ist sogar Open Source. <strong>Doch welcher Webshop passt zu dir?</strong></p>
-
-                        <h2 class="headline--small">Know How</h2>
-                        <p>Seit mehreren Jahren arbeite ich für die <a href="//www.wacg.de" target="_blank">Werbeagentur caesar&gustav</a> in Stuttgart. Unser Hauptgeschäft sind Internet-Shops in den verschiedensten Bereichen. Von Arznei zu Kaffee und Sex Toys ist alles dabei.</p>
-
-                        <p class="headline--small">Durchdacht ab dem ersten Pinselstrich</p>
-                        <p>Mir ist klar, dass alles schon gestern fertig sein sollte. Doch wer nicht die Ruhe bewahrt, vergeudet Energie, Ideen und Zeit. Ich bin den Stress in Agenturen gewohnt und behalte immer einen kühlen Kopf.</p>
-                        <p class="headline--small">Kluge Worte schmeicheln nicht</p>
-                        <p>Deswegen nehme ich mir vor jedem Projekt genug Zeit, um genau abzuschätzen wie lange jeder Abschnitt dauern wird. Hierbei mache ich keine falschen Versprechen und bin stets realistischer Pessimist mit einem Lächeln im Gesicht.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="slide">
-            <div class="wrapper">
-                <div class="flex flex--center">
-                    <p class="text-center text-larger">
-                        Alles was ich hier tue, das tue ich mit ...
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex flex--reverse flex--columns">
+                <div class="flex__item">
+                    <p class="headline--supersize">
+                        BRAND
                     </p>
                 </div>
+                <div class="flex__item flex__item--end">
+                    <img src="assets/apple-grid.png" alt="Magento, Shopware, Sylius" class="img-responsive pull-right"
+                         style="max-height: 360px;">
+                </div>
+                <div class="flex__item flex__item--end">
+                    <h2 class="headline--small">Corporate Identity</h2>
+
+                    <p>Schriftzüge, Typografie, Farbpaletten und Logos bilden Ihr Firmenbild. Ich gestalte mir dir
+                        gemeinsam diese eigene kleine Welt der Farben und Symbole.</p>
+
+                    <h2 class="headline--small">Wiedererkennung</h2>
+
+                    <p>Farben und Formen sind begrenzt. Das entscheidene ist die richtige Mischung. Die Harmonie aus
+                        Farben und Formen bildet einen Charakter, der auch wieder erkannt wird.</p>
+
+                    <p class="headline--small">Schein oder Sein</p>
+
+                    <p>Ich sage immer, die passende Erscheinung zur richtigen Unternehmensphilosophie spiegeln das
+                        Innerste am besten wieder. Ich unterstütze sowohl bei der Findung der besten Ausrichtung, sowie
+                        bei der Umsetzung des dazu passenden Außenauftritts.</p>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="slide">
-            <div class="wrapper">
-                <div class="flex flex--center">
-                    <p class="text-center headline--supersize">
-                        LEIDENSCHAFT
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex flex--columns">
+                <div class="flex__item">
+                    <p class="headline--supersize">
+                        WEB
                     </p>
                 </div>
+                <div class="flex__item flex__item--end">
+                    <p>
+                        <strong>Seit 10 Jahren programmiere, konzipiere und gestalte ich Webseiten.</strong>
+                    </p>
+
+                    <p class="headline--small">Mein Schweizer Taschenmesser</p>
+
+                    <p>Hierbei benutze ich neueste Technologien wie
+                        <a href="//developer.mozilla.org/de/docs/Web/HTML/HTML5" target="_blank">HTML5</a>,
+                        <a href="//de.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">CSS3</a>,
+                        <a href="//sass-lang.com/" target="_blank">SASS</a>,
+                        <a href="//php.net/manual/de/intro-whatis.php" target="_blank">PHP</a>,
+                        <a href="//www.javascript.com/" target="_blank">JavaScript</a>,
+                        <a href="//angularjs.org/" target="_blank">AngularJS</a>
+                        und etliche andere Frameworks und Programmiersprachen.
+                    </p>
+
+                    <p class="headline--small">Open Source</p>
+
+                    <p>Ich liebe es meine Arbeiten anderen Entwicklern zur Verfügung zu stellen. Denn in unserer Welt
+                        ist ›geistiges Eigentum‹ ein Fremdwort. Wir teilen alles brüderlich und schwesterlich!</p>
+                </div>
+                <div class="flex__item flex__item--end">
+                    <img src="assets/web-logos.png" alt="HTML5, CSS3, SASS, PHP, AngularJS, Symphon"
+                         class="img-responsive">
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="slide">
-            <div class="wrapper">
-                <div class="flex flex--center">
-                    <p class="text-center headline--supersize">
-                        GELASSENHEIT
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex flex--columns">
+                <div class="flex__item">
+                    <p class="headline--supersize text-right">
+                        APP
                     </p>
                 </div>
+
+                <div class="flex__item text-right">
+                    <h2 class="headline--small">App Entwicklung</h2>
+
+                    <p>Apps sollten intuitiv, selbsterklärend und spielerisch zu bedienen sein. In der Theorie klingt das leicht, doch bedarf einer umfangreichen Planung. Von der ersten Skizze bis zu den Animationen bleibe ich stets an Ihrer Seite.</p>
+
+                    <h2 class="headline--small">Apps für iOS, Android oder Windows Phones</h2>
+
+                    <p>Machen Sie sich keine Gedanken um die Kompatibilität für die verschiedenen Geräte und Betriebssysteme. Ich entwickle einen Prototypen, den wir vor der Fertigstellung auf den wichtigsten Geräten ausprobieren können.</p>
+                </div>
+
+                <div class="flex__item flex__item--end">
+                    <img src="assets/iphone.png" alt="Apps for iOS, Android and Windows Phones"
+                         class="img-responsive">
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="slide">
-            <div class="wrapper">
-                <div class="flex flex--center">
-                    <p class="text-center headline--supersize">
-                        HERZBLUT
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex flex--reverse flex--columns">
+                <div class="flex__item">
+                    <p class="headline--supersize">
+                        SHOP
                     </p>
                 </div>
-            </div>
-        </div>
+                <div class="flex__item flex__item--end">
+                    <img src="assets/shop-logos.png" alt="Magento, Shopware, Sylius" class="img-responsive">
+                </div>
+                <div class="flex__item flex__item--end">
+                    <h2 class="headline--small">Großes Angebot</h2>
 
-        <div class="slide">
-            <div class="wrapper">
-                <div class="flex flex--center">
-                    <p class="text-center text-larger">
-                        ... und weil ich nicht anders kann, als <strong>dich</strong> und deine Kunden zu verzaubern!
-                    </p>
+                    <p>Inzwischen gibt es zahlreiche Webshop Lösungen. Eine Vielzahl davon ist sogar Open Source.
+                        <strong>Doch welcher Webshop passt zu dir?</strong></p>
+
+                    <h2 class="headline--small">Know How</h2>
+
+                    <p>Seit mehreren Jahren arbeite ich für die <a href="//www.wacg.de" target="_blank">Werbeagentur
+                        caesar&gustav</a> in Stuttgart. Unser Hauptgeschäft sind Internet-Shops in den verschiedensten
+                        Bereichen. Von Arznei zu Kaffee und Sex Toys ist alles dabei.</p>
+
+                    <p class="headline--small">Durchdacht ab dem ersten Pinselstrich</p>
+
+                    <p>Mir ist klar, dass alles schon gestern fertig sein sollte. Doch wer nicht die Ruhe bewahrt,
+                        vergeudet Energie, Ideen und Zeit. Ich bin den Stress in Agenturen gewohnt und behalte immer
+                        einen kühlen Kopf.</p>
+
+                    <p class="headline--small">Kluge Worte schmeicheln nicht</p>
+
+                    <p>Deswegen nehme ich mir vor jedem Projekt genug Zeit, um genau abzuschätzen wie lange jede
+                        Projektphase dauern wird. Klare Ansagen sind meine Devise!</p>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="slide">
-            <div class="wrapper">
-                <div class="flex flex--center">
-                    <img src="assets/nls_logo_rasperry.png" alt="NEXT LEVEL SHIT" class="vert-responsive img-center">
-                </div>
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex flex--center">
+                <p class="text-center text-larger">
+                    Alles was ich hier tue, das tue ich mit ...
+                </p>
             </div>
-        <!--</div>-->
+        </div>
+    </div>
 
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex flex--center">
+                <p class="text-center headline--supersize">
+                    LEIDENSCHAFT
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex flex--center">
+                <p class="text-center headline--supersize">
+                    GELASSENHEIT
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex flex--center">
+                <p class="text-center headline--supersize">
+                    HERZBLUT
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex flex--center">
+                <p class="text-center text-larger">
+                    ... und weil ich nicht anders kann, als <strong>Sie</strong> und Ihre Kunden zu verzaubern!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="wrapper">
+            <div class="flex flex--center">
+                <img src="assets/nls_logo_rasperry.png" alt="NEXT LEVEL SHIT" class="vert-responsive img-center">
+            </div>
+        </div>
     </div>
 </div>
 </body>

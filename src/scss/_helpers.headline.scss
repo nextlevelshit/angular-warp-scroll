@@ -1,0 +1,18 @@
+.headline {
+  &--supersize {
+    margin: 0;
+    font-size: 8vw;
+    /*line-height: 120px;*/
+    font-family: 'Montserrat', sans-serif !important;
+    /*text-transform: uppercase;*/
+    font-weight: 700;
+  }
+
+  &--small {
+    text-transform: uppercase;
+    color: $ci-color-1;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+    font-size: 1vw;
+  }
+}

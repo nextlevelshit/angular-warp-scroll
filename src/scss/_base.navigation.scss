@@ -1,0 +1,19 @@
+/*
+ * Navigation
+ */
+
+aside {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: auto;
+  z-index: 2000;
+  padding: 50px 0 0 40px;
+
+  @media screen and (min-width: $breakpoint-m) {
+    display: block;
+  }
+
+}
