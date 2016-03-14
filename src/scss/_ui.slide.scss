@@ -6,6 +6,8 @@
   left: 1vw;
   top: 1vw;
 
+  display: none; // Initially all hide slides
+
   &__wrapper {
     @include prefix((
             perspective: 1000px,
