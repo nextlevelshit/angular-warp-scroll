@@ -7910,6 +7910,11 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+/**
+ * @author Hugo Giraudel
+ * @param {Map} $declarations - Declarations to prefix
+ * @param {List} $prefixes (()) - List of prefixes to print
+ */
 /*----------------------------------------------------------------
 * Base
 *----------------------------------------------------------------
@@ -8068,30 +8073,38 @@ p {
  */
 .flex {
   display: flex;
-  flex-flow: row wrap;
-  align-items: flex-start;
-  align-content: center;
-  justify-content: center;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  -webkit-align-content: center;
+  align-content: center;
+  -webkit-justify-content: center;
+  justify-content: center; }
   .flex--center {
+    -webkit-align-items: center !important;
     align-items: center !important;
+    -webkit-justify-content: center !important;
     justify-content: center !important; }
   .flex--columns {
+    -webkit-flex-direction: column;
     flex-direction: column;
+    -webkit-flex-flow: column wrap;
     flex-flow: column wrap; }
   .flex--reverse {
+    -webkit-align-items: flex-end !important;
     align-items: flex-end !important; }
     .flex--reverse .flex__item--end {
+      -webkit-align-self: flex-start !important;
       align-self: flex-start !important; }
   .flex__item {
     width: 50%;
     min-width: calc(100% / 3);
-    /*max-height: 33%;*/
-    padding: 0 15px;
-    /*height: 50%;*/
-    /*overflow: hidden;*/ }
+    padding: 0 15px; }
     .flex__item--end {
+      -webkit-align-self: flex-end;
       align-self: flex-end;
       order: 1; }
 
@@ -8152,17 +8165,15 @@ p {
   content: '»';
   position: absolute;
   top: 0;
-  /*left: 0;*/
-  /*width: 100%;*/
-  transform: rotate(90deg); }
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg); }
 
 .scroll-down::after {
   content: '»';
   position: absolute;
-  /*left: 0;*/
-  /*width: 100%;*/
   opacity: 0.1;
   transform: rotate(90deg) scale(1.6);
+  -webkit-transform: rotate(90deg) scale(1.6);
   animation: scroll-down 2.6s infinite; }
 
 @keyframes scroll-down {
@@ -8182,9 +8193,13 @@ p {
   position: absolute;
   z-index: 1;
   left: 1vw;
-  top: 1vw; }
+  top: 1vw;
+  display: none; }
   .slide__wrapper {
+    -webkit-perspective: 1000px;
     perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
     position: fixed;
     height: 100%;
     width: 100%; }

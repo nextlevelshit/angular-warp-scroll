@@ -1,6 +1,6 @@
 /*! angular-warp-scroll
 version: 0.0.2
-build date: 2016-3-13
+build date: 2016-3-17
 author: Michael Czechowski (nextlevelshit)
 https://github.com/nextlevelshit/angular-warp-scroll.git */
 var app = angular.module('app', []);
@@ -96,11 +96,34 @@ app.factory('scrollService', ["$window", "$document", function ($window, $docume
             return (this.outerHeight() - this.innerHeight()) / (this.slidesNum() - 1);
         },
 
+        visibleSlidesObject: function () {
+            /**
+             * Slide keys starting with 0, so the corrected number of
+             * slides have to be increased for this calculation by one.
+             */
+            var correctedSlidesNum = this.slidesNum() - 1;
+            var slideInForegroundKey = Math.floor(correctedSlidesNum * this.progress());
+            var slideInBackgroundKey = Math.floor(correctedSlidesNum * this.progress()) + 1;
+
+            return {
+                foreground: {
+                    key: slideInForegroundKey,
+                    progress: (correctedSlidesNum * this.progress() - slideInForegroundKey)
+                },
+                background: {
+                    key: slideInBackgroundKey,
+                    progress: (correctedSlidesNum * this.progress() - slideInBackgroundKey)
+                }
+            };
+        },
+
         activeSlide: function () {
             var minDiff = 1000, // TODO: Try to avoid this decleration to make it more reliable
                 closestKey;
 
             angular.forEach(this.slidesDom(), function (slide, key) {
+                if (!slide.style.transform) return;
+
                 var translate = slide.style.transform.match(/-?\d+[.]?\d*/,'')[0];
                 var m = Math.abs(0 - translate);
 
@@ -122,22 +145,12 @@ app.controller('scrollCtrl', ["$scope", "$log", "$window", "$document", "scrollS
         $('body').height(scrollService.slidesNum() * 1000);
     }
 
-    /**
-     * Get current opacity of every slide related to its
-     * position on Z scala
-     */
-
-    function getOpacity(x, shift) {
-        var parabola = getParabola(x, shift, 0.01);
-        return roundNegativeToZero(parabola);
+    function showElement (element) {
+        element.style.display = 'block';
     }
 
-    function getParabola(x, shift, slope) {
-        return -Math.pow((x - shift), 2) / slope + 1;
-    }
-
-    function roundNegativeToZero(num) {
-        return num > 0 ? num : 0;
+    function hideElement (element) {
+        element.style.display = 'none';
     }
 
     /**
@@ -148,44 +161,31 @@ app.controller('scrollCtrl', ["$scope", "$log", "$window", "$document", "scrollS
     function scrollHandler() {
         // TODO: Add EventListener to Window resize
 
-        var stepsRelativeToAllSlides = 1 / (scrollService.slidesNum() - 1);
+        /**
+         * Iterate through all slides and toggle
+         * display property
+         */
 
-        angular.forEach(scrollService.slidesDom(), function (slide, key) {
-
-            /**
-             * Set css transform
-             */
-
-            // TODO: Refactor calculation, it is to complicated
-            var transform = (scrollService.outerHeight() * (scrollService.progress() - 1)) + scrollService.slideHeight() * (scrollService.slidesNum() - key - scrollService.progress());
-
-            slide.style.transform = slide.style.webkitTransform = 'translateZ(' + transform + 'px)';
-
-            /**
-             * Set css opacity
-             */
-
-            var step = stepsRelativeToAllSlides * key;
-            var opacity = slide.style.opacity = getOpacity(scrollService.progress(), step);
-
-            /**
-             * Toggle css display
-             */
-
-            slide.style.display = (transform < scrollService.slideHeight()) ? 'block' : 'none';
-
-            /**
-             * Set css filter
-             */
-
-            var blur = (opacity < 0.9) ? Math.round(opacity * 100) / 20 : 0;
-
-            if (blur) {
-                slide.style.filter = slide.style.webkitFilter = 'blur(' + blur + 'px)';
-            } else {
-                slide.style.filter = slide.style.webkitFilter = '';
-            }
+        angular.forEach(scrollService.slidesDom(), function (slide) {
+            hideElement(slide);
         });
+
+        /**
+         * Iterate through visible slides object
+         */
+
+        angular.forEach(scrollService.visibleSlidesObject(), function (param) {
+            var slide = scrollService.slidesDom()[param.key];
+            var opacity =       (param.progress <= 0) ? -Math.pow(param.progress, 2)+1 : -Math.pow(param.progress, 4)+1;
+            var transform =     (param.progress <= 0) ? Math.pow(param.progress, 3)*3000 : Math.pow(param.progress, 3)*10000;
+            var blur =          (param.progress <= 0) ? Math.pow(param.progress, 4)*10 : Math.pow(param.progress, 4)*100;
+
+            showElement(slide);
+            slide.style.opacity = opacity;
+            slide.style.transform = slide.style.webkitTransform = 'translateZ(' + transform + 'px)';
+            slide.style.filter = 'blur(' + blur + 'px)';
+        });
+
     }
 
     /*
