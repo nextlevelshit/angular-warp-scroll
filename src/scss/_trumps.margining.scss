@@ -1,0 +1,15 @@
+/**
+ * Margins and paddings
+ */
+
+.margin {
+  &__off {
+    margin: 0 !important
+  }
+
+  &__top {
+    // TODO: Use dynamic margins and variables
+    margin-top: 32px !important;
+  }
+}
+

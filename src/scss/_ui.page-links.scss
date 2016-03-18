@@ -1,11 +1,11 @@
 .page-links {
   position: absolute;
-  left: 1vw;
-  right: 1vw;
+  left: 1.3vw;
+  right: 1.3vw;
   bottom: 1vw;
   padding: 4px;
 
-  span, a {
+  span, a, * {
     color: $ci-color-1;
     font-size: 1.2rem;
     text-decoration: none;

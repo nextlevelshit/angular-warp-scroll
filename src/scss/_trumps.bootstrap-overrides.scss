@@ -3,10 +3,12 @@
  */
 
 .jumbotron {
+  // TODO: Use bootstrap variables to adjust styles
   border-radius: 0 !important;
   font-weight: 700;
 
   p {
+    // TODO: Use dynamic font sizes
     font-size: 36px !important;
   }
 }
@@ -31,4 +33,11 @@
 
 .img-center {
   margin: 0 auto;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+  // TODO: Use bootstrap variables to change color of headlines
+  color: $ci-color-1;
 }

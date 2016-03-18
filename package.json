@@ -1,6 +1,6 @@
 {
   "name": "angular-warp-scroll",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Scroll through your website in a star wars intro like experience",
   "main": "index.html",
   "repository": {
@@ -17,6 +17,7 @@
     "angular-scroll-watch": "^0.6.1",
     "bootstrap": "^3.3.6",
     "bootstrap-sass": "^3.3.6",
+    "fancybox": "^3.0.0",
     "font-awesome": "^4.5.0",
     "gulp": "^3.9.1",
     "gulp-cached": "^1.1.0",

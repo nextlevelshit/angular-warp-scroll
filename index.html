@@ -14,7 +14,7 @@
 
     <title>NEXT LEVEL SHIT - Interactive Design in Stuttgart by Michael Czechowski - Brands, Design, Print, Web</title>
     <meta name="description" content="Innovatives Webdesign Webentwicklung App Entwicklung aus Stuttgart" />
-    <meta name="keywords" content="webdesign stuttgart, webseiten stuttgart, apps stuttgart,  app entwicklung stuttgart, programmierung stuttgart, webdesign, webdesigner, stuttgart, web, shop, print, brands, webseite, homepage, agentur, werbeagentur, logo, corporate, identity, online-shop, onlineshop, webshop, web-shop, online marketing, marketing, deutschland, web-design, gestaltung, kommunikation" />
+    <meta name="keywords" content="webdesign stuttgart, webseiten stuttgart, apps stuttgart, app entwicklung stuttgart, programmierung stuttgart, webdesign, webdesigner, stuttgart, web, shop, print, brands, webseite, homepage, agentur, werbeagentur, logo, corporate, identity, online-shop, onlineshop, webshop, web-shop, online marketing, marketing, deutschland, web-design, gestaltung, kommunikation" />
 
     <meta name="author" content="Michael Czechowski - NEXT LEVEL SHIT - Brands, Design, Print, Web" />
     <meta name="publisher" content="Michael Czechowski - NEXT LEVEL SHIT - Brands, Design, Print, Web" />
@@ -23,15 +23,29 @@
 
     <meta name="geo.region" content="DE-BW" />
     <meta name="geo.placename" content="Stuttgart" />
-    <meta name="geo.position" content="48.770326,9.179777" />
+    <meta name="geo.position" content="48.7589873,9.15616902" />
 
     <link rel="stylesheet" type="text/css" href="build/styles.min.css">
 
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/fancybox/dist/js/jquery.fancybox.pack.js"></script>
 
     <script src="build/angular-warp-scroll.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.fancybox').fancybox({
+                openEffect: 'elastic',
+                maxWidth	: 800,
+                maxHeight	: 600,
+                fitToView	: false,
+                width		: '70%',
+                height		: '80%'
+            });
+        });
+    </script>
 </head>
 
 <body ng-controller="scrollCtrl">
@@ -41,14 +55,14 @@
 <div class="border bottom">
     <div class="page-links">
         <div class="pull-left">
-            <span>
+            <h2 class="margin__off">
                 Webdesign und Programmierung von Michael Czechowski
-            </span>
+            </h2>
         </div>
         <div class="pull-right">
             <span>
-                <a href="#">Impressum</a> |
-                <a href="mailto:mail@dailysh.it">Kontakt</a>
+                <a href="src/templates/imprint.html" class="fancybox fancybox.ajax">Impressum</a> |
+                <a href="mailto: mail@dailysh.it">Kontakt</a>
             </span>
         </div>
     </div>
@@ -80,7 +94,7 @@
                     <h1>Webdesign aus Stuttgart</h1>
                 </div>
                 <div class="col-md-4">
-                    <h1>Interactive und Interaction Design</h1>
+                    <h1>Interactive Design</h1>
                 </div>
                 <div class="col-md-4">
                     <h1>Webentwicklung und Apps</h1>
