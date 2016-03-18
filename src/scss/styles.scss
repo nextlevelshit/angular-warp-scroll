@@ -10,6 +10,8 @@ $fa-font-path: '../node_modules/font-awesome/fonts';
 $ci-color-1: #CC0A4D;
 $ci-color-2: #30b6f5;
 
+$font-size-default: 1.2vw;
+
 $breakpoint-xxl:  1500px;
 $breakpoint-xl:   1200px;
 $breakpoint-l:     980px;
@@ -45,7 +47,7 @@ $breakpoint-s:     480px;
 @import "base.navigation";
 
 p {
-  font-size: 1.2vw;
+  font-size: $font-size-default;
 }
 
 /*----------------------------------------------------------------
@@ -58,7 +60,6 @@ p {
 @import "helpers.headline";
 @import "helpers.margining";
 @import "helpers.positioning";
-@import "helpers.text";
 
 /*----------------------------------------------------------------
 * Objects
@@ -92,3 +93,4 @@ p {
 */
 
 @import "trumps.bootstrap-overrides";
+@import "trumps.text";

@@ -1,0 +1,43 @@
+.text {
+
+  /**
+   * Text sizes
+   */
+  &--small {
+    font-size: 0.9rem !important;
+  }
+
+  &--default {
+    &,
+    & * {
+      font-size: $font-size-default;
+    }
+  }
+
+  &--large {
+    font-size: 26px !important;
+  }
+
+  &--larger {
+    font-size: 42px !important;
+  }
+
+  /**
+   * Text colors
+   */
+
+  &--grey {
+    color: $gray;
+  }
+
+  /**
+   * Text alignment
+   */
+
+  &--center {
+    &,
+    & * {
+      text-align: center !important;
+    }
+  }
+}

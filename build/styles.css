@@ -8018,12 +8018,6 @@ p {
 .position--center {
   margin: 0 auto; }
 
-.text-large {
-  font-size: 26px; }
-
-.text-larger {
-  font-size: 42px; }
-
 /*----------------------------------------------------------------
 * Objects
 *----------------------------------------------------------------
@@ -8226,6 +8220,18 @@ p {
       left: 15vw;
       top: 10vh; } }
 
+.page-links {
+  position: absolute;
+  left: 1vw;
+  right: 1vw;
+  bottom: 1vw;
+  padding: 4px; }
+  .page-links span, .page-links a {
+    color: #CC0A4D;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border: none; }
+
 /*----------------------------------------------------------------
 * Trumps / Overrides
 *----------------------------------------------------------------
@@ -8258,3 +8264,28 @@ p {
 
 .img-center {
   margin: 0 auto; }
+
+.text {
+  /**
+   * Text sizes
+   */
+  /**
+   * Text colors
+   */
+  /**
+   * Text alignment
+   */ }
+  .text--small {
+    font-size: 0.9rem !important; }
+  .text--default,
+  .text--default * {
+    font-size: 1.2vw; }
+  .text--large {
+    font-size: 26px !important; }
+  .text--larger {
+    font-size: 42px !important; }
+  .text--grey {
+    color: #555555; }
+  .text--center,
+  .text--center * {
+    text-align: center !important; }
