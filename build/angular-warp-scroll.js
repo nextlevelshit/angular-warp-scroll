@@ -1,6 +1,6 @@
 /*! angular-warp-scroll
 version: 0.1.0
-build date: 2016-3-18
+build date: 2016-3-20
 author: Michael Czechowski (nextlevelshit)
 https://github.com/nextlevelshit/angular-warp-scroll.git */
 var app = angular.module('app', []);
@@ -73,7 +73,8 @@ app.factory('scrollService', ["$window", "$document", function ($window, $docume
                 // Add active state
                 slides.push({
                     id: key,
-                    active: this.activeSlide() === key
+                    active: this.activeSlide() === key,
+                    title: slide.getAttribute('data-title')
                 });
             }, this);
 

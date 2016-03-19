@@ -68,7 +68,8 @@ app.factory('scrollService', function ($window, $document) {
                 // Add active state
                 slides.push({
                     id: key,
-                    active: this.activeSlide() === key
+                    active: this.activeSlide() === key,
+                    title: slide.getAttribute('data-title')
                 });
             }, this);
 

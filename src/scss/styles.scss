@@ -13,6 +13,8 @@ $ci-color-2: #30b6f5;
 
 $font-size-default: 1.2vw;
 
+$transition-bounce: all 320ms cubic-bezier(.58,.92,.77,1.22);
+
 $breakpoint-xxl:  1500px;
 $breakpoint-xl:   1200px;
 $breakpoint-l:     980px;
@@ -85,6 +87,7 @@ p {
 @import "ui.scroll-down-icon";
 @import "ui.slide";
 @import "ui.page-links";
+@import "ui.dots";
 
 /*----------------------------------------------------------------
 * Trumps / Overrides

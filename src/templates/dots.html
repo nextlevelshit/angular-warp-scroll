@@ -1,6 +1,8 @@
-<ul class="list list--dots">
-    <li class="list__item"
+<ul class="list list--dots dots">
+    <li class="list__item dots__item"
         ng-repeat="(key, slide) in status.slides"
         ng-class="{active: slide.active}"
-        ng-click="scrollToSlide(key)"></li>
+        ng-click="scrollToSlide(key)">
+        <a href="#{{slide.title}}" title="{{slide.title}}" class="dots__item__title">{{slide.title}}</a>
+    </li>
 </ul>

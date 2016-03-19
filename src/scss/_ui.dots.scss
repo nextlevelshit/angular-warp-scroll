@@ -1,0 +1,35 @@
+.dots {
+  &__item {
+    position: relative;
+    perspective: 100px;
+
+    color: $gray-base;
+
+    &:hover, &:focus {
+      opacity: 0.8;
+      color: $ci-color-1;
+
+      .dots__item__title {
+        opacity: 1;
+        transform: rotateY(0deg);
+        color: $ci-color-1 !important;
+      }
+    }
+
+    &__title {
+      position: absolute;
+      width: auto;
+      top: -5px;
+      left: 0;
+      padding-left: 20px;
+      opacity: 0;
+      white-space: nowrap;
+
+      transition: $transition-bounce;
+      transform: rotateY(90deg);
+      transform-origin: 0% 50% 0;
+      text-transform: uppercase;
+      border-width: 0 !important;
+    }
+  }
+}
