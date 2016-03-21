@@ -88,6 +88,7 @@ p {
 @import "ui.slide";
 @import "ui.page-links";
 @import "ui.dots";
+@import "ui.particles";
 
 /*----------------------------------------------------------------
 * Trumps / Overrides
@@ -100,3 +101,12 @@ p {
 @import "trumps.fancybox-overrides";
 @import "trumps.text";
 @import "trumps.margining";
+
+.slide {
+  &--fullsize {
+    left: 0 !important;
+    top: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+}

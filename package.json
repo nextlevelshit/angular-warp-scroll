@@ -34,5 +34,8 @@
     "jquery": "^2.2.1",
     "jshint": "^2.9.1",
     "jshint-stylish": "^2.1.0"
+  },
+  "dependencies": {
+    "particles.js": "^2.0.0"
   }
 }

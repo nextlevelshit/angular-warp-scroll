@@ -8,6 +8,15 @@
 
   display: none; // Initially all hide slides
 
+  &__inner {
+    width: 98vw;
+    height: 98vh;
+    position: absolute;
+    z-index: 1;
+    left: 1vw;
+    top: 1vw;
+  }
+
   &__wrapper {
     @include prefix((
             perspective: 1000px,

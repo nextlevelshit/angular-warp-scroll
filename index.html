@@ -31,6 +31,7 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="node_modules/fancybox/dist/js/jquery.fancybox.pack.js"></script>
+    <script src="node_modules/particles.js/particles.js"></script>
 
     <script src="build/angular-warp-scroll.min.js"></script>
 
@@ -74,8 +75,30 @@
 </aside>
 
 <div class="slide__wrapper">
-    <div class="slide" data-title="Start">
-        <div class="wrapper">
+    <div class="slide slide--fullsize" data-title="Start">
+        <div id="particles-js"></div>
+
+        <div class="slide__inner">
+            <div class="flex flex--center">
+                <div class="flex__item">
+                    <h1 class="text--center">App Entwicklung aus Stuttgart</h1>
+
+                    <div class="row text--grey text--default text--center">
+                        <div class="col-md-4">
+                            <h2>Webdesign</h2>
+                        </div>
+                        <div class="col-md-4">
+                            <h2>Interactive Design</h2>
+                        </div>
+                        <div class="col-md-4">
+                            <h2>Beratung</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper hidden">
             <div class="jumbotron background--portrait">
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-4 text-center">
@@ -299,6 +322,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+    particlesJS.load('particles-js', '../assets/particles.json', function() {
+        console.log('callback - particles.js config loaded');
+    });
+</script>
 </body>
 
 </html>
