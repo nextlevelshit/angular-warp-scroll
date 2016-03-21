@@ -172,7 +172,7 @@ app.controller('scrollCtrl', function ($scope, $log, $window, $document, scrollS
 
         angular.forEach(scrollService.visibleSlidesObject(), function (param) {
             var slide = scrollService.slidesDom()[param.key];
-            var opacity =       (param.progress <= 0) ? -Math.pow(param.progress, 2)+1 : -Math.pow(param.progress, 4)+1;
+            var opacity =       (param.progress <= 0) ? -Math.pow(param.progress, 2)+1 : -Math.pow(param.progress, 2)+1;
             var transform =     (param.progress <= 0) ? Math.pow(param.progress, 3)*3000 : Math.pow(param.progress, 3)*10000;
             var blur =          (param.progress <= 0) ? Math.pow(param.progress, 4)*10 : Math.pow(param.progress, 4)*100;
 

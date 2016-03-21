@@ -8323,6 +8323,8 @@ p {
     width: 50%;
     min-width: calc(100% / 3);
     padding: 0 15px; }
+    .flex__item--fullwidth {
+      width: 100%; }
     .flex__item--end {
       -webkit-align-self: flex-end;
       align-self: flex-end;
@@ -8415,12 +8417,12 @@ p {
   top: 1vw;
   display: none; }
   .slide__inner {
-    width: 98vw;
-    height: 98vh;
+    width: 50vw;
+    height: 60vh;
     position: absolute;
     z-index: 1;
-    left: 1vw;
-    top: 1vw; }
+    left: 25vw;
+    top: 20vh; }
   .slide__wrapper {
     -webkit-perspective: 1000px;
     perspective: 1000px;

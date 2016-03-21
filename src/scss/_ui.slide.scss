@@ -9,12 +9,12 @@
   display: none; // Initially all hide slides
 
   &__inner {
-    width: 98vw;
-    height: 98vh;
+    width: 50vw;
+    height: 60vh;
     position: absolute;
     z-index: 1;
-    left: 1vw;
-    top: 1vw;
+    left: 25vw;
+    top: 20vh;
   }
 
   &__wrapper {
