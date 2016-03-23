@@ -1,6 +1,6 @@
 /*! angular-warp-scroll
 version: 0.3.0
-build date: 2016-3-22
+build date: 2016-3-23
 author: Michael Czechowski (nextlevelshit)
 https://github.com/nextlevelshit/angular-warp-scroll.git */
 var app = angular.module('app', []);

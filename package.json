@@ -27,6 +27,7 @@
     "gulp-jshint": "^2.0.0",
     "gulp-livereload": "^3.8.1",
     "gulp-ng-annotate": "^2.0.0",
+    "gulp-real-favicon": "^0.2.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.2.0",
     "gulp-sitemap": "^3.1.0",
