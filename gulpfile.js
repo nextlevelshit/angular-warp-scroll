@@ -10,7 +10,8 @@ var connect = require('gulp-connect'),
     rename = require('gulp-rename'),
     annotate = require('gulp-ng-annotate'),
     header = require('gulp-header'),
-    sass = require('gulp-sass');
+    sass = require('gulp-sass'),
+    sitemap = require('gulp-sitemap');
 
 var pkg = require('./package.json');
 
@@ -81,5 +82,13 @@ gulp.task('sass', function () {
         .pipe(gulp.dest(config.buildDir))
 });
 
-gulp.task('default', ['build']);
+gulp.task('sitemap', function () {
+    gulp.src('index.html')
+        .pipe(sitemap({
+            siteUrl: 'http://www.dailysh.it'
+        }))
+        .pipe(gulp.dest('./'));
+});
+
+gulp.task('default', ['build', 'sitemap']);
 gulp.task('dev', ['build', 'sass', 'watch', 'watch:sass', 'serve']);
