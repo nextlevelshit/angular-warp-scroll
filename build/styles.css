@@ -8147,6 +8147,11 @@ button.close {
  * @param {Map} $declarations - Declarations to prefix
  * @param {List} $prefixes (()) - List of prefixes to print
  */
+.list, .dots {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; }
+
 /*----------------------------------------------------------------
 * Base
 *----------------------------------------------------------------
@@ -8156,7 +8161,6 @@ button.close {
 body {
   margin: 0;
   padding: 0;
-  /*height: 1000px; !* Must be set to NUMBER OF SLIDES * PERSPECTIVE *!*/
   background: white;
   color: #2A2A2A;
   font-family: 'Ruda', sans-serif !important;
@@ -8186,11 +8190,10 @@ aside {
   display: none;
   position: fixed;
   top: 0;
-  left: 0;
+  left: 2vw;
   height: 100%;
   width: auto;
-  z-index: 2000;
-  padding: 50px 0 0 40px; }
+  z-index: 2000; }
   @media screen and (min-width: 768px) {
     aside {
       display: block; } }
@@ -8330,28 +8333,13 @@ p {
       align-self: flex-end;
       order: 1; }
 
-.list {
-  margin: 0;
-  padding: 0;
-  list-style-type: none; }
-  .list--vertical {
-    display: block; }
-    .list--vertical .list__item {
-      display: inline-block; }
-  .list--dots .list__item {
-    opacity: 0.2;
-    cursor: pointer;
-    height: 30px;
-    margin-bottom: 20px; }
-    .list--dots .list__item.active {
-      opacity: 1;
-      color: #CC0A4D; }
-    .list--dots .list__item::before {
-      content: '·';
-      font-size: 60px;
-      line-height: 10px; }
-  .list__item {
-    display: block; }
+.list--vertical {
+  display: block; }
+  .list--vertical .list__item {
+    display: inline-block; }
+
+.list__item {
+  display: block; }
 
 /*----------------------------------------------------------------
 * Components / UI
@@ -8467,29 +8455,49 @@ p {
     border: none; }
 
 .dots__item {
+  display: block;
   position: relative;
-  perspective: 100px;
-  color: #000; }
+  margin-bottom: 10px;
+  perspective: 50px;
+  opacity: 0.1;
+  color: #000;
+  cursor: pointer; }
+  .dots__item::before {
+    content: '';
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px #000 inset; }
   .dots__item:hover, .dots__item:focus {
-    opacity: 0.8;
-    color: #CC0A4D; }
+    opacity: 0.8; }
+    .dots__item:hover::before, .dots__item:focus::before {
+      box-shadow: 0 0 0 3px #CC0A4D inset; }
     .dots__item:hover .dots__item__title, .dots__item:focus .dots__item__title {
       opacity: 1;
       transform: rotateY(0deg);
       color: #CC0A4D !important; }
+  .dots__item.active {
+    opacity: 1; }
+    .dots__item.active::before {
+      box-shadow: 0 0 0 3px #CC0A4D inset;
+      background: #CC0A4D; }
   .dots__item__title {
     position: absolute;
     width: auto;
-    top: -5px;
+    top: 0;
     left: 0;
     padding-left: 20px;
     opacity: 0;
     white-space: nowrap;
-    transition: all 320ms cubic-bezier(0.58, 0.92, 0.77, 1.22);
+    transition: all 10ms ease-out;
     transform: rotateY(90deg);
     transform-origin: 0% 50% 0;
     text-transform: uppercase;
-    border-width: 0 !important; }
+    border-width: 0 !important;
+    line-height: 14px; }
 
 #particles-js {
   background-color: #FFF;

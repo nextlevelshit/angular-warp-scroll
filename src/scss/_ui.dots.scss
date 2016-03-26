@@ -1,13 +1,37 @@
 .dots {
-  &__item {
-    position: relative;
-    perspective: 100px;
+  @extend %list-reset;
 
+  &__item {
+    $this-border-width: 3px;
+    $this-border-radius: 7px;
+
+    display: block;
+    position: relative;
+    margin-bottom: 10px;
+    perspective: 50px;
+
+    opacity: 0.1;
     color: $gray-base;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      display: block;
+      position: relative;
+      box-sizing: border-box;
+
+      height: $this-border-radius * 2;
+      width: $this-border-radius * 2;
+      border-radius: 50%;
+      box-shadow: 0 0 0 $this-border-width $gray-base inset;
+    }
 
     &:hover, &:focus {
       opacity: 0.8;
-      color: $ci-color-1;
+
+      &::before {
+        box-shadow: 0 0 0 $this-border-width $ci-color-1 inset;
+      }
 
       .dots__item__title {
         opacity: 1;
@@ -16,20 +40,30 @@
       }
     }
 
+    &.active {
+      opacity: 1;
+
+      &::before {
+        box-shadow: 0 0 0 $this-border-width $ci-color-1 inset;
+        background: $ci-color-1;
+      }
+    }
+
     &__title {
       position: absolute;
       width: auto;
-      top: -5px;
+      top: 0;
       left: 0;
       padding-left: 20px;
       opacity: 0;
       white-space: nowrap;
 
-      transition: $transition-bounce;
+      transition: $transition-default;
       transform: rotateY(90deg);
       transform-origin: 0% 50% 0;
       text-transform: uppercase;
       border-width: 0 !important;
+      line-height: $this-border-radius * 2;
     }
   }
 }
