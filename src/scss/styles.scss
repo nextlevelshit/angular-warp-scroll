@@ -5,11 +5,10 @@
 * Global variables, site-wide settings, config switches, etc.
 */
 
-$fa-font-path: '../node_modules/font-awesome/fonts';
-$fancybox-image-url: '../assets';
-
 $ci-color-1: #CC0A4D;
 $ci-color-2: #30b6f5;
+$gray-base: #000;
+$gray: #000;
 
 $font-size-default: 1.2vw;
 
@@ -30,13 +29,6 @@ $breakpoint-s:     480px;
 * Low-specificity, far-reaching rulesets (e.g. resets).
 */
 
-@import '../../node_modules/font-awesome/scss/font-awesome';
-@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
-@import '../../node_modules/fancybox/dist/scss/jquery.fancybox';
-
-@import url(http://fonts.googleapis.com/css?family=Ruda:400,700);
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
-
 @import "generic.mixins";
 @import "generic.extends";
 
@@ -48,7 +40,6 @@ $breakpoint-s:     480px;
 */
 
 @import "base.body";
-@import "base.links";
 @import "base.aside";
 
 p {
@@ -62,7 +53,6 @@ p {
 * Simple classes helpers (e.g. .fullheight {}).
 */
 
-@import "helpers.headline";
 @import "helpers.positioning";
 
 /*----------------------------------------------------------------
@@ -73,9 +63,7 @@ p {
 */
 
 @import "objects.background";
-@import "objects.border";
 @import "objects.flex-boxes";
-@import "objects.list";
 
 /*----------------------------------------------------------------
 * Components / UI
@@ -84,13 +72,8 @@ p {
 * Discrete, complete chunks of UI (e.g. .carousel {}).
 */
 
-@import "ui.animations";
-@import "ui.scroll-down-icon";
 @import "ui.slide";
-@import "ui.page-links";
 @import "ui.dots";
-@import "ui.particles";
-@import "ui.fork";
 
 /*----------------------------------------------------------------
 * Trumps / Overrides
@@ -99,16 +82,5 @@ p {
 * Discrete, complete chunks of UI (e.g. .carousel {}).
 */
 
-@import "trumps.bootstrap-overrides";
-@import "trumps.fancybox-overrides";
 @import "trumps.text";
 @import "trumps.margining";
-
-.slide {
-  &--fullsize {
-    left: 0 !important;
-    top: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-  }
-}
