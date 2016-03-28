@@ -11,8 +11,6 @@ var connect = require('gulp-connect'),
     annotate = require('gulp-ng-annotate'),
     header = require('gulp-header'),
     sass = require('gulp-sass'),
-    sitemap = require('gulp-sitemap'),
-    realFavicon = require ('gulp-real-favicon'),
     fs = require('fs');
 
 var pkg = require('./package.json');
@@ -84,76 +82,5 @@ gulp.task('sass', function () {
         .pipe(gulp.dest(config.buildDir))
 });
 
-gulp.task('sitemap', function () {
-    gulp.src('index.html')
-        .pipe(sitemap({
-            siteUrl: 'http://www.dailysh.it'
-        }))
-        .pipe(gulp.dest('./'));
-});
-
-/**
- * Generate favicons
- **/
-var FAVICON_DATA_FILE = 'faviconData.json';
-
-gulp.task('generate-favicon', function(done) {
-    realFavicon.generateFavicon({
-        masterPicture: 'assets/favicon.png',
-        dest: './build/favicons',
-        iconsPath: '/',
-        design: {
-            ios: {
-                pictureAspect: 'noChange'
-            },
-            desktopBrowser: {},
-            windows: {
-                pictureAspect: 'noChange',
-                backgroundColor: '#cc0a4d',
-                onConflict: 'override'
-            },
-            androidChrome: {
-                pictureAspect: 'noChange',
-                themeColor: '#ffffff',
-                manifest: {
-                    name: 'NLS',
-                    display: 'browser',
-                    orientation: 'notSet',
-                    onConflict: 'override',
-                    declared: true
-                }
-            },
-            safariPinnedTab: {
-                pictureAspect: 'blackAndWhite',
-                threshold: 61.71875,
-                themeColor: '#5bbad5'
-            }
-        },
-        settings: {
-            compression: 5,
-            scalingAlgorithm: 'Mitchell',
-            errorOnImageTooSmall: false
-        },
-        markupFile: FAVICON_DATA_FILE
-    }, function() {
-        done();
-    });
-});
-
-gulp.task('inject-favicon-markups', function() {
-    gulp.src('index.html')
-        .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
-        .pipe(gulp.dest('./'));
-});
-
-gulp.task('check-for-favicon-update', function(done) {
-    var currentVersion = JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).version;
-    realFavicon.checkForUpdates(currentVersion, function(err) {
-        if (err) {
-            throw err;
-        }
-    });
-});
-
-gulp.task('default', ['build', 'sitemap']);
+gulp.task('default', ['build']);
 gulp.task('dev', ['build', 'sass', 'watch', 'watch:sass', 'serve']);
