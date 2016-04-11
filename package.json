@@ -1,8 +1,8 @@
 {
   "name": "angular-warp-scroll",
-  "version": "0.3.0",
-  "description": "Scroll through your website in a star wars intro like experience",
-  "main": "index.html",
+  "version": "0.4.0",
+  "description": "Scroll into your website in a Star Wars Intro like experience",
+  "main": "build/angular-warp-scroll.min.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/nextlevelshit/angular-warp-scroll.git"
