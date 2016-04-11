@@ -21,8 +21,8 @@ Download `angular-scroll-watch` and add the distributed JavaScript and CSS to yo
 <link rel="stylesheet" type="text/css" href="[PATH-TO-YOUR-DOWNLOAD-FOLDER]/build/styles.min.css">
 <script src="[PATH-TO-YOUR-DOWNLOAD-FOLDER]/build/angular-warp-scroll.min.js"></script>
 
-    <script src="node_modules/angular/angular.min.js"></script>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 
 ```
 
