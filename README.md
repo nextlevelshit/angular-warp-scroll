@@ -6,8 +6,8 @@ Simple directive for scrolling into the website and add dots navigation automati
 
 # Requirements
 
-- AngularJS
-- jQuery (still)
+- AngularJS 1.5+
+- jQuery 2.2+ (still)
 
 # Installation 
 
