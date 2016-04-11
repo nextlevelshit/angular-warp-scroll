@@ -46,6 +46,15 @@ p {
   font-size: $font-size-default;
 }
 
+h1 {
+  font-variant: small-caps;
+}
+
+h3 {
+  color: $ci-color-1;
+  font-weight: 200;
+}
+
 /*----------------------------------------------------------------
 * Helper classes
 *----------------------------------------------------------------
