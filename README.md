@@ -42,7 +42,14 @@ If you get no result please download and install `node.js` from [https://docs.np
 ### 2) Install `angular-warp-scroll`
 
 ```sh
-npm install angular-warp-scroll --save-dev
+npm install angular-warp-scroll
+```
+
+### 3) Install dependencies `jquery` and `angular`
+
+```sh
+npm install jquery
+npm install angular
 ```
 
 ### 3) Add all necessary files to your website
@@ -50,8 +57,31 @@ npm install angular-warp-scroll --save-dev
 Put this lines into `<head>` of your website.
 
 ```html
-comming...
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/angular/angular.min.js"></script>
+<script src="node_modules/angular-warp-scroll/build/angular-warp-scroll.min.js"></script>
 ```
+
+It is also  recommended to use the delivered styles, but they are not necessary.
+
+```html
+<link rel="stylesheet" href="node_modules/angular-warp-scroll/build/styles.min.css">
+```
+
+### 4) Initialize the script
+
+Specify the angular app in the `<html>` tag.
+
+```html
+<html ng-app="app">
+```
+
+Load `angular-warp-scroll` controller in the `<body>` tag.
+
+```html
+<body ng-controller="scrollCtrl">
+```
+
 
 # Documentation
 
@@ -61,9 +91,40 @@ After you have followed all steps above, you are now free to use this module. Ta
 
 ### Dots navigation
 
-`comming...`
+```html
+<aside>
+    <div class="flex flex--center">
+        <div class="flex__item">
+            <dots status="scrollStatus"></dots>
+        </div>
+    </div>
+</aside>
+```
 
-### Adding and removing slides
+The navigation is rendered automatically from the amount of slides, which are declared by `class="slide"`.
+Adding the attribute `data-title` specifies the displayed navigation point.
 
-`comming...`
+### Adding slides
+
+Add element with class `slide` to a wrapper.
+
+```html
+<div class="slide__wrapper">
+    <div class="slide" data-title="First slide">
+        <div class="flex flex--center">
+            <div>
+                <h1>Slide #1</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide" data-title="Second slide">
+        <div class="flex flex--center">
+            <div>
+                <h1>Slide #2</h1>
+            </div>
+        </div>
+    </div>
+</div>
+```
 
