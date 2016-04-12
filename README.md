@@ -17,7 +17,7 @@ You have two ways to get this module running. Choose this one you feel most comf
 
 ### 1) Download
 
-Download `angular-scroll-watch` from (https://github.com/nextlevelshit/angular-warp-scroll/archive/master.zip)[https://github.com/nextlevelshit/angular-warp-scroll/archive/master.zip] and unzip.
+Download `angular-scroll-watch` from [https://github.com/nextlevelshit/angular-warp-scroll/archive/master.zip](https://github.com/nextlevelshit/angular-warp-scroll/archive/master.zip) and unzip.
 
 ### 2) Solve dependencies
 
