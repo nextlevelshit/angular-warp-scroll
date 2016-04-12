@@ -155,7 +155,7 @@ app.directive('dots', function () {
          */
 
         function scrollHandler() {
-            // TODO: Add EventListener to Window resize
+            // TODO: Add EventListener for window resize
 
             /**
              * Iterate through all slides and toggle
@@ -189,7 +189,7 @@ app.directive('dots', function () {
          */
 
         angular.element($window).bind('scroll', function () {
-            init();
+            scrollHandler();
             $scope.$apply();
         });
 
@@ -197,19 +197,9 @@ app.directive('dots', function () {
          * Give scroll information to frontend
          */
 
-        function updateStatus() {
-            $scope.scrollStatus = {
-                progress: scrollService.progress(),
-                slides: scrollService.slides(),
-                slideScrollHeight: scrollService.slideScrollHeight()
-            };
-        }
-
-        function init() {
-            scrollHandler();
-            updateStatus();
-            console.log('test');
-        }
-
-        init();
+        $scope.scrollStatus = {
+            progress: scrollService.progress(),
+            slides: scrollService.slides(),
+            slideScrollHeight: scrollService.slideScrollHeight()
+        };
     });

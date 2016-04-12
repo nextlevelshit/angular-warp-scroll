@@ -1,6 +1,6 @@
 {
   "name": "angular-warp-scroll",
-  "version": "0.4.1",
+  "version": "0.4.3",
   "description": "Scroll into your website in a Star Wars Intro like experience",
   "main": "build/angular-warp-scroll.min.js",
   "repository": {

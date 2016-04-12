@@ -1,6 +1,6 @@
 /*! angular-warp-scroll
-version: 0.3.0
-build date: 2016-4-11
+version: 0.4.2
+build date: 2016-4-13
 author: Michael Czechowski (nextlevelshit)
 https://github.com/nextlevelshit/angular-warp-scroll.git */
 var app = angular.module('app', []);
@@ -160,7 +160,7 @@ app.directive('dots', function () {
          */
 
         function scrollHandler() {
-            // TODO: Add EventListener to Window resize
+            // TODO: Add EventListener for window resize
 
             /**
              * Iterate through all slides and toggle
@@ -194,7 +194,7 @@ app.directive('dots', function () {
          */
 
         angular.element($window).bind('scroll', function () {
-            init();
+            scrollHandler();
             $scope.$apply();
         });
 
@@ -202,19 +202,9 @@ app.directive('dots', function () {
          * Give scroll information to frontend
          */
 
-        function updateStatus() {
-            $scope.scrollStatus = {
-                progress: scrollService.progress(),
-                slides: scrollService.slides(),
-                slideScrollHeight: scrollService.slideScrollHeight()
-            };
-        }
-
-        function init() {
-            scrollHandler();
-            updateStatus();
-            console.log('test');
-        }
-
-        init();
+        $scope.scrollStatus = {
+            progress: scrollService.progress(),
+            slides: scrollService.slides(),
+            slideScrollHeight: scrollService.slideScrollHeight()
+        };
     }]);
