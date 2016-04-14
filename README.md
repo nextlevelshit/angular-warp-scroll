@@ -1,5 +1,8 @@
 # Angular Warp Scroll
-Simple directive for scrolling into the website and add dots navigation automatically. Currently under development.
+UI to zoom into your website instead of scrolling up and down. 
+
+> *Very early and heavily under development.* If you are not using AngularJS, have a look at [jquery-warp-scroll](https://github.com/nextlevelshit/jquery-warp-scroll).
+
 
 <img src="https://raw.githubusercontent.com/nextlevelshit/angular-warp-scroll/master/preview.gif" alt="Preview" />
 
