@@ -14,6 +14,8 @@ UI to zoom into your website instead of scrolling up and down.
 
 # Installation 
 
+[![NPM](https://nodei.co/npm/angular-warp-scroll.png?downloads=true)](https://nodei.co/npm/angular-warp-scroll/)
+
 You have two ways to get this module running. Choose this one you feel most comfortable with.
 
 ## Installation without Package Manager
